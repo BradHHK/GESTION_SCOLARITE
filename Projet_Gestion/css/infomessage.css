@@ -14,7 +14,7 @@
     position: relative;
     color: #278398;
     top: 20%;
-    right: -1150%;
+    right: -1030%;
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -44,8 +44,8 @@ hr{
 
 .logo{
     position: relative;
-    height: 80px;
-    width: 80px;
+    height: 75px;
+    width: 75px;
     left: -70%;
     top: -35%;
 }
