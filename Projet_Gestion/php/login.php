@@ -14,12 +14,13 @@
                     
                             
                     <a href='../login.html'><button type='button' id='_boutonClose'>X</button></a>
-                    <hr>
+                   
                 </div>
                 
+                <hr>
                         
                 <div class='message_corp'>
-                    Veiller remplir tout les champs
+                    <span>Veiller remplir tout les champs</span>
                 </div>
                         
                 
