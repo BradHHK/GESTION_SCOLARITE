@@ -3,6 +3,7 @@
     if(isset($_POST["Login"]) && isset($_POST["Password"]) && isset($_POST["role"]) ){
         session_start();
         // $_SESSION["Login"]=
+        
     }else{
         echo"<link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
             <link rel='stylesheet' href='../css/infomessage.css'>

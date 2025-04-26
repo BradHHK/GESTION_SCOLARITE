@@ -13,8 +13,8 @@
 #_boutonClose{
     position: relative;
     color: #278398;
-    top: 20%;
-    right: -190px;
+    top: 18%;
+    right: -245px;
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -56,7 +56,7 @@ hr{
     color: rgb(78, 79, 81);
 }
 
-@media (max-width:1130px) {
+@media (max-width:1024px) {
     #_boutonClose{
         position: relative;
         color: #278398;
