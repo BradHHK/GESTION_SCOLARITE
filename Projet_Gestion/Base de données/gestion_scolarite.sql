@@ -70,7 +70,6 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 
 INSERT INTO `administrator` (`Code`, `Nom`, `Prenom`, `email`, `telephone`, `adresse`) VALUES
 ('ABZ231', 'Ahmed', 'Younes', 'Ahmed@est.com', '09764213', 'Rabat');
-
 -- --------------------------------------------------------
 
 --
