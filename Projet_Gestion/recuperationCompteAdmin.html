@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Récuperation de compte</title>
     <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
 </head>
 <body>
-    <div class="container h-80" id="_form_loginadmin">
+    <div class="container h-80" id="_form_login">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <div class="bg-white p-4 rounded shadow-lg" id ="customBox" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="bg-white p-4 rounded shadow-lg" id ="customBoxLogin" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     <div class="row">
                         <div class="col-md-6">
                             <img src="./images/logo.png" alt="Logo" class="img-fluid logo">
-                            <img src="./images/adminloginimage.png" alt="loginImage" class="img-fluid custom-image" id="imageAdmin">
+                            <img src="./images/recuperation.png" alt="loginImage" class="img-fluid custom-image" id="imageLogin">
                         </div>
 
                         <div class="col-md-6">
-                            <form action="php/adminLogin.php" class="" style="margin-top: 10%;" method="post">
+                            <form action="php/recuperationCompteAdmin.php" class="" style="margin-top: 10%;" method="post">
                                 <fieldset class="border-0  rounded px-4 pt-2 pb-3 mb-4">
-                                    <legend class="float-none w-auto px-1 fs-4 fw-normal text-primary" style="text-align: center;">Bienvenue sur ETUSOFT !</legend>
+                                    <legend class="float-none w-auto px-1 fs-4 fw-normal text-primary" style="text-align: center;">Recuperation de compte </legend>
                                     <div class="mb-3">
                                         <fieldset class="border rounded px-3 pt-2 pb-3 mb-4">
-                                            <legend class="float-none w-auto px-1 fs-6 fw-normal text-primary" >Login</legend>
-                                            <input type="text" class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" name="Login">
+                                            <legend class="float-none w-auto px-1 fs-6 fw-normal text-primary" >Nom & Prenom</legend>
+                                            <input type="text" class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" name="nom_prenom" required>
                                         </fieldset>
                                     </div>
 
                                     <div class="mb-3">
                                         <fieldset class="border rounded px-3 pt-2 pb-3 mb-4">
-                                            <legend class="float-none w-auto px-1 fs-6 fw-normal text-primary">Password</legend>
-                                            <input type="password" class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" name="Password">
+                                            <legend class="float-none w-auto px-1 fs-6 fw-normal text-primary">Code Administrateur</legend>
+                                            <input type="text" class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" name="id_Etudiant_Enseignant" required>
                                         </fieldset>
                                     </div>
-                                    
                                 </fieldset>
                                 <fieldset class="border-0  rounded px-4 pt-2 pb-3 mb-4">
                                     <legend class="float-none w-auto px-1 fs-6 fw-normal text-muted" style="text-align: right;">Ta vie universitaire, version 2.0 !</legend>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <button class="btn btn-outline-success"> Connecter</button>
+                                            <button class="btn btn-outline-success"> Recuperer</button>
                                         </div>
                                         <div class="col-md-6">
                                             <button class="btn btn-outline-danger" type="reset"> Annuler</button>

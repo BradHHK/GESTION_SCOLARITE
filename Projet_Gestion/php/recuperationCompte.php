@@ -31,7 +31,8 @@
                         
                         if($statement->execute()){
                             $message ="<br>Bienvenue Mr ".$row['Nom']." ".$row['prenom']." <br><br> Voici vos identifiants de connection : <br> Login  : $login <br> Password : $password <br> <br>!!! Pensez à modifier votre mot de passe après votre connection  ";
-                            displayInfoRecuperation($message);
+                            $link = "../login.html";
+                            displayInfo($message, $link);
                         }
                     }
                     
@@ -59,11 +60,12 @@
 
                         $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);
-                        $role = 2;
+                        $role = 1;
                         
                         if($statement->execute()){
                             $message ="<br>Bienvenue Mr ".$row['Nom']." ".$row['prenom']." <br><br> Voici vos identifiants de connection : <br> Login  : $login <br> Password : $password <br> <br>!!! Pensez à modifier votre mot de passe après votre connection  ";
-                            displayInfoRecuperation($message);
+                            $link = "../login.html";
+                            displayInfo($message, $link);
                         }
                     }
                     
@@ -89,11 +91,12 @@
 
                         $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);
-                        $role = 2;
+                        $role = 3;
                         
                         if($statement->execute()){
                             $message ="<br>Bienvenue Mr ".$row['Nom']." ".$row['prenom']." <br><br> Voici vos identifiants de connection : <br> Login  : $login <br> Password : $password <br> <br>!!! Pensez à modifier votre mot de passe après votre connection  ";
-                            displayInfoRecuperation($message);
+                            $link = "../adminLogin.html";
+                            displayInfo($message, $link);
                         }
                     }
                     
