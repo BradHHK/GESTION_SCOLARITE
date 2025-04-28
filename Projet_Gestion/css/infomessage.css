@@ -10,6 +10,10 @@
     border-top: .2px solid #cff4fc;
 }
 
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
 #_boutonClose{
     position: relative;
     color: #278398;
