@@ -20,7 +20,7 @@
                     if(password_verify($password,$row["password"])){
                         if(strcmp($row['statut'], "Activé")==0){
                             $message ="<br>Bienvenue  ".$row['login']." sur Etusoft<br><br>";
-                            $link = "../adminPanel.html";
+                            $link = "adminPanel.php";
                             displayInfo($message, $link);
                         }else{
                             $message ="<br>Mr  ".$row['login']." compte suspendu sur Etusoft<br><br> Veillez contacter un administrateur<br>";
@@ -29,6 +29,9 @@
                         }
                     }
                 endforeach;  
+                $message ="<br>Mr  ".$row['login']." mot de passe incorrect <br>";
+                $link = "../adminLogin.html";
+                displayInfo($message, $link);
             }else{
                 $message ="<br>Administrateur(e) inconnu(e)>";
                 $link = "../adminLogin.html";

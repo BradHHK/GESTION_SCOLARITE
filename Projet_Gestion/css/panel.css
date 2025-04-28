@@ -1,0 +1,18 @@
+*{
+    font-size: 85%;
+    text-decoration: none;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.img-menu{
+    height: 50px;
+    width: 50px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+}
