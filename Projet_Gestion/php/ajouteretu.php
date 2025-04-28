@@ -1,40 +1,40 @@
 <?php
-$host = '127.0.0.1';
-$db = 'gestion_scolarite'; 
-$user = 'root'; 
-$pass = ''; 
-$charset = 'utf8mb4';
+$servername = "127.0.0.1";
+$username = "root"; 
+$password = ""; 
+$database = "gestion_scolarite"; 
+$conn = mysqli_connect($servername, $username, $password, $database);
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-
-try {
-    
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $date_naissance = $_POST['date_naissance'];
-    $id_filiere = $_POST['id_filiere'];
-
-
-    $sql = "INSERT INTO etudiants (nom, prenom, date_naissance, id_filiere) VALUES (?, ?, ?, ?)";
     
-    try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$nom, $prenom, $date_naissance, $id_filiere]);
+    $matricule = mysqli_real_escape_string($conn, $_POST['matricule']);
+    $nom = mysqli_real_escape_string($conn, $_POST['nom']);
+    $prenom = mysqli_real_escape_string($conn, $_POST['prenom']);
+    $date_naissance = mysqli_real_escape_string($conn, $_POST['date_naissance']);
+    $id_filiere = mysqli_real_escape_string($conn, $_POST['id_filiere']);
+
+ 
+    $sql = "INSERT INTO etudiants (Matricule, nom, prenom, date_naissance, id_filiere) VALUES (?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+
+  
+    mysqli_stmt_bind_param($stmt, "ssssi", $matricule, $nom, $prenom, $date_naissance, $id_filiere);
+
+   
+    if (mysqli_stmt_execute($stmt)) {
         echo "Étudiant ajouté avec succès.";
-    } catch (\PDOException $e) {
-        echo "Erreur lors de l'ajout de l'étudiant: " . $e->getMessage();
+    } else {
+        echo "Erreur lors de l'ajout de l'étudiant: " . mysqli_error($conn);
     }
+
+    
+    mysqli_stmt_close($stmt);
 }
+
+
+mysqli_close($conn);
 ?>
