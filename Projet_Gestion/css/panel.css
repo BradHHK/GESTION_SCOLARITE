@@ -6,13 +6,25 @@
 }
 
 .img-menu{
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 79px;
+    cursor: pointer;
 }
 
 .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 19px;
+    color: rgb(52, 41, 41);
+    height: 75px;
+    padding: 0;
+    border-radius: 1.5rem;
+    background-color: #e0f7fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%,1% 45%, 2% 0%);
+}
+
+h5{
+    margin: 0;
 }
