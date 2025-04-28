@@ -20,8 +20,15 @@
         <input type="date" name="date_naissance" required>
         <br>
 
-        <label for="id_filiere">ID Filière:</label>
-        <input type="number" name="id_filiere" required>
+        <label for="id_filiere">Filière:</label>
+        <select name="id_filiere" required>
+            <option value="">Sélectionnez une filière</option>
+            <option value="1">Génie informatique</option>
+            <option value="2">Système et réseau informatique</option>
+            <option value="3">Génie industrielle</option>
+            <option value="4">Génie civil</option>
+            <option value="5">Système informatique</option>
+        </select>
         <br>
 
         <input type="submit" value="Ajouter Étudiant">
