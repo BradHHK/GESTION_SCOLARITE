@@ -32,7 +32,9 @@
                             }
                         }  
                     endforeach;  
-                    
+                    $message = "Erreur Enseignant(e) inconnu(e)";
+                    $link = "../login.html";
+                    displayInfo($message, $link);
                 }else{
                     $message = "Erreur Enseignant(e) inconnu(e)";
                     $link = "../login.html";
@@ -61,11 +63,11 @@
                                 $link = "../login.html";
                                 displayInfo($message, $link);
                             }
-                        }else{
-                            echo"1";
-                        }  
+                        } 
                     endforeach;  
-                    
+                    $message = "Erreur Etudiant(e) inconnu(e)";
+                    $link ="../login.html";
+                    displayInfo($message, $link);
                 }else{
                     $message = "Erreur Etudiant(e) inconnu(e)";
                     $link = "../login.html";
