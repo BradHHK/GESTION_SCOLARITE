@@ -55,10 +55,55 @@
         <div class="option">
             <div class="card">
                 <div class="card-image">
-
+                    <img src="../images/G_matiere.png" alt="">
                 </div>
                 <div class="card-text">
+                    <h5 class="titreCard">Organisez toutes les matières enseignées comme un chef !</h5>
+                    <hr>
+                    <p>Ajoutez de nouvelles disciplines, mettez à jour les cours existants ou supprimez ceux qui n’ont plus leur place.
+                    Un seul clic pour garder le programme à jour et inspirer les futurs diplômés !</p>
+                    <a class="consulter">Accéder</a>
+                </div>
+            </div>
 
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/G_filiere.png" alt="">
+                </div>
+                <div class="card-text">
+                    <h5 class="titreCard">Construisez les parcours d’excellence !</h5>
+                    <hr>
+                    <p>Créez, modifiez et structurez les différentes filières pour mieux guider les étudiants dans leur aventure académique.
+                    Ici, chaque filière devient un tremplin vers la réussite !</p>
+                    <a class="consulter">Accéder</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/setting.png" alt="">
+                </div>
+                <div class="card-text">
+                    <h5 class="titreCard">Gérez votre communauté universitaire en toute simplicité !</h5>
+                    <hr>
+                    <p>Donnez accès aux étudiants, enseignants et admins, contrôlez les permissions et gardez un œil sur chaque profil.
+                    Parce qu'une bonne organisation commence par une bonne gestion des comptes !</p>
+                    <a class="consulter">Accéder</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/setting.png" alt="">
+                </div>
+                <div class="card-text">
+                    <h5 class="titreCard">Prenez les commandes de votre application !</h5>
+                    <hr>
+                    <p>
+                    Personnalisez l'apparence, ajustez les fonctionnalités, configurez votre système selon vos envies.
+                    Parce que votre université mérite une application aussi unique qu'elle !</p>
+
+                    <a class="consulter">Accéder</a>
                 </div>
             </div>
         </div>
