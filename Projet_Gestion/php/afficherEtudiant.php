@@ -1,10 +1,3 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION["Login"]) || !isset($_SESSION["Password"])){
-        header("location:../adminLogin.html");
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +13,7 @@
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
             <h5>Panneau Administrateur </h5>
-            <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;<?php echo $_SESSION['Login']; ?></span>
+            <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
     
