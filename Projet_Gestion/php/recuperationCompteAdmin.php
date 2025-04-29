@@ -11,13 +11,14 @@
                 $statement = $con->prepare("SELECT Nom, prenom FROM administrator where code like ?");
                 $statement->bind_param("s", $matricule);
                 $nom = $_POST["nom_prenom"];
-                $matricule = $_POST["id_Etudiant_Enseignant"];
+                $matriculeBrut = $_POST["id_Etudiant_Enseignant"];
+                $matricule = strtoupper($matriculeBrut);
 
                 $statement->execute();
                 $result = $statement->get_result();
                 if($row = $result->fetch_assoc()){
                     $nomrecup = $row["Nom"]." ".$row["prenom"];
-                    if(strcmp($nom, $nomrecup)==0){
+                    if(strcmp(ucwords(strtolower($nom)) , $nomrecup)==0){
                         
                         $password = genererPassword(8);
                         $statement = $con->prepare("INSERT INTO accounts(login, password, id_role) VALUES(?, ?, ?)");

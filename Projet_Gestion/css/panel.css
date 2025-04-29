@@ -4,7 +4,6 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     overflow-x: hidden;
-    overflow: hidden;
 }
 
 .logo_img{
@@ -20,7 +19,7 @@
 }
 
 .ImageDefault i{
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .arrow{
@@ -392,6 +391,144 @@ h5{
     transition: .5s ease-in-out;
     cursor: pointer;
 }
+
+.optionAjouter{
+    width: 100%;
+    min-height: 70vh; 
+    padding: 2%;
+    box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.optionAjouter form{
+    font-size: 30px;
+    width: 40%;
+    color: #023047;
+    border-left: .2px solid #cff4fc;
+    border-right: .2px solid #cff4fc;
+    min-height: 75vh; 
+    transition: .5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    clip-path: inset(0 0 0 0 round 5% 5% 0 10%);
+}
+
+.optionAjouter form td{
+    padding: 1%;
+    padding-bottom: 30px;
+}
+
+.optionAjouter form input[type="text"]{
+    width: 100%;
+    border: none;
+    background: transparent;
+    border-radius: 1.2rem;
+    text-align: center;
+    height: 35px;
+    box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
+    border-bottom: .3px solid #007f5f;
+}
+
+.optionAjouter form input[type="date"]{
+    width: 100%;
+    border: none;
+    background: transparent;
+    height: 35px;
+    box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
+    border-radius: 1.2rem;
+    text-align: center;
+    border-bottom: .3px solid #007f5f;
+}
+
+.optionAjouter form select{
+    width: 100%;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    height: 35px;
+    box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
+    background: transparent;
+    border-radius: 1.2rem;
+    border-bottom: .3px solid #007f5f;
+}
+
+.imageContain{
+    background-color: #cff4fc;
+    
+    transform: rotate(20deg);
+    position: fixed;
+    z-index: -1;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+#star1{
+    width: 13%;
+    min-height: 26vh; 
+    top: 25%;
+    left: 30%;
+}
+
+
+.optionAjouter form table{
+    width: 100%;
+    align-items: center;
+}
+
+.text-header{
+    background-color: #cff4fc;
+    color: #007f5f;
+    height: 18%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+}
+
+.bouton-area{
+    background-color: #f1f8fb;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 15%;
+    width: 100%;
+}
+
+button{
+    font-size: 15px;
+    height: 35px;
+    width: 100px;
+    border: .2px solid #fff;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+
+button[type="submit"]{
+    background-color: #cff4fc;
+    color: #007f5f;
+}
+
+button[type="reset"]{
+    background-color: #eb575c;
+    color: #eef2f3;
+}
+
+.form-contain{
+    height: 67%;
+    width: 100%;
+    padding: 5%;
+}
+
 body{
     background-color: #fff;
 }

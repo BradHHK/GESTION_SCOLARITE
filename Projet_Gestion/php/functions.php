@@ -13,13 +13,19 @@
         return $chaine;
     }   
 
-    function genererMatricule($taille = 8) {
-        $caracteres = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@&#_';
+    function genererMatricule($taille = 7) {
+        $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $chiffres = '0123456789';
         $chaine = '';
-        $max = strlen($caracteres) - 1;
+        $max1 = strlen($caracteres) - 1;
+        $max2 = strlen($chiffres) - 1;
+        $date = date('Y');
+        $chaine .=$date[2];
+        $chaine .=$date[3];
+        $chaine .= $caracteres[random_int(0, $max1)];
 
-        for ($i = 0; $i < $taille; $i++) {
-            $chaine .= $caracteres[random_int(0, $max)];
+        for ($i = 0; $i < 4; $i++) {
+            $chaine .= $chiffres[random_int(0, $max2)];
         }
 
         return $chaine;
