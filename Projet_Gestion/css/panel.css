@@ -19,6 +19,10 @@
     cursor: pointer;
 }
 
+.ImageDefault i{
+    font-size: 40px;
+}
+
 .arrow{
     min-height: 10vh;
     width: 5%;

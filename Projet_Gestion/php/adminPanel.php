@@ -19,8 +19,8 @@
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur</h5>
-            <span class="ImageDefault"><i class="fa-regular fa-user"></i></span>
+            <h5>Panneau Administrateur </h5>
+            <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;<?php echo $_SESSION['Login']; ?></span>
         </header>
     </div>
     
@@ -31,12 +31,14 @@
                 <ul>
                     <li class="link"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des matieres</a></li>
                     <ul>
+                        <li><a href="#" >Afficher les matieres</a></li>
                         <li><a href="#" >Ajouter une matiere</a></li>
                         <li><a href="#" >Modifier une matiere</a></li>
                         <li><a href="#" >Supprimer une matiere</a></li>
                     </ul>
                     <li class="link"><i class="fa-solid fa-note-sticky"></i><a href="#" >Gestion des filieres</a></li>
                     <ul>
+                        <li><a href="#" >Afficher les filieres</a></li>
                         <li><a href="#" >Ajouter une filiere</a></li>
                         <li><a href="#" >Modifier une filiere</a></li>
                         <li><a href="#" >Supprimer une filiere</a></li>

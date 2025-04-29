@@ -13,6 +13,18 @@
         return $chaine;
     }   
 
+    function genererMatricule($taille = 8) {
+        $caracteres = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@&#_';
+        $chaine = '';
+        $max = strlen($caracteres) - 1;
+
+        for ($i = 0; $i < $taille; $i++) {
+            $chaine .= $caracteres[random_int(0, $max)];
+        }
+
+        return $chaine;
+    }   
+
     function displayInfoRecuperation($message){
         echo"<link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
             <link rel='stylesheet' href='../css/infomessage.css'>
