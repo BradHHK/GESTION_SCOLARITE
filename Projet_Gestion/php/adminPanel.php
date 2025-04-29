@@ -77,7 +77,7 @@
                     <hr>
                     <p>Créez, modifiez et structurez les différentes filières pour mieux guider les étudiants dans leur aventure académique.
                     Ici, chaque filière devient un tremplin vers la réussite !</p>
-                    <a class="consulter">Accéder</a>
+                    <a href="#" class="consulter">Accéder</a>
                 </div>
             </div>
 
