@@ -104,7 +104,7 @@
                                                 $statement->execute();
                                                 $result = $statement->get_result();
                                                 while($row = $result->fetch_assoc()){
-                                                    echo "<option value='".$row['id_enseignant']."'>".$row['nom']."</option>";
+                                                    echo "<option value='".$row['id_enseignant']."'>".$row['nom']." ".$row["prenom"]."</option>";
                                                 }
                                                 
                                             } catch (Exception $ex) {
