@@ -436,6 +436,17 @@ h5{
     border-bottom: .3px solid #007f5f;
 }
 
+.optionAjouter form input[type="email"]{
+    width: 100%;
+    border: none;
+    background: transparent;
+    border-radius: 1.2rem;
+    text-align: center;
+    height: 35px;
+    box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
+    border-bottom: .3px solid #007f5f;
+}
+
 .optionAjouter form input[type="date"]{
     width: 100%;
     border: none;
@@ -531,4 +542,5 @@ button[type="reset"]{
 
 body{
     background-color: #fff;
+    overflow-y: hidden;
 }

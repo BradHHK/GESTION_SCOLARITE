@@ -29,7 +29,20 @@
         }
 
         return $chaine;
-    }   
+    }  
+
+    function genererMatriculeEnseignant($taille = 7) {
+        $chiffres = '0123456789';
+        $chaine = 'EX';
+        $max1 = strlen($chiffres) - 1;
+
+        for ($i = 0; $i < 5; $i++) {
+            $chaine .= $chiffres[random_int(0, $max1)];
+        }
+
+        return $chaine;
+    }
+
 
     function displayInfoRecuperation($message){
         echo"<link rel='stylesheet' href='../css/bootstrap/bootstrap.css'>
