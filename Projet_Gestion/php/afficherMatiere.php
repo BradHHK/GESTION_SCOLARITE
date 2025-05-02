@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Afficher les étudiants</title>
+    <title>Panneau Administrateur - Afficher les matieres</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Afficher les étudiants</h5>
+            <h5>Panneau Administrateur - Afficher les matieres</h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
@@ -50,39 +50,40 @@
         <div class="optionAfficher">
             <div class="container">
                 <div class="text-header">
-                    <h5>Liste des étudiants</h5>
-                    
-                    <form action="" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
+                    <h5>Liste des matieres</h5>
+                    <form action="" method="post" class="recherche-Pan"><input type="text" required placeholder="Nom"><button type="submit" class="fa-solid fa-search"></button></form>
                 </div>
                 <div class="div-contain">
                     <table>
                         <tr>
                             <th></th>
-                            <th>Matricule</th>
                             <th>Nom</th>
-                            <th>Prenom</th>
-                            <th>Date de naissance</th>
+                            <th>Enseignant</th>
                             <th>Filiere</th>
-                            <th></th>
                         </tr>
                         <?php 
                                 require_once "db_connect.php";
                                 require_once "functions.php";
                                 try {     
-                                    $statement = $con->prepare("SELECT id_etudiant, Matricule, nom, prenom, date_naissance, id_filiere FROM etudiants");
+                                    $statement = $con->prepare("SELECT id_matiere, nom_matiere, id_enseignant, id_filiere FROM matieres");
                                     $statement->execute();
                                     $result = $statement->get_result();
                                     
                                     while($row = $result->fetch_assoc()){
                                         
                                         echo"<tr>";
-                                        echo"<td><span><i class='fas fa-user-graduate'></span></td>
-                                            <td>".$row["Matricule"]."</td>
-                                            <td>".$row["nom"]."</td>
-                                            <td>".$row["prenom"]."</td>
-                                            <td>".$row["date_naissance"]."</td>";
+                                        echo"<td><span><i class='fas fa-chalkboard-teacher'></span></td>
+                                            <td>".$row["nom_matiere"]."</td>";
 
-                                  
+                                        $statement3 = $con->prepare("SELECT nom, prenom FROM enseignants where (id_enseignant = ?)");
+                                        $statement3->bind_param("i",$id);
+                                        $id = $row["id_enseignant"];
+                                        $statement3->execute();
+                                        $result3 = $statement3->get_result();
+                                        if($row3 = $result3->fetch_assoc()){
+                                            echo"<td>".$row3["nom"]." ".$row3["prenom"]."</td>";
+                                        }
+
                                         $statement2 = $con->prepare("SELECT nom_filiere FROM filieres where (id_filiere = ?)");
                                         $statement2->bind_param("i",$id);
                                         $id = $row["id_filiere"];
@@ -91,21 +92,18 @@
                                         if($row2 = $result2->fetch_assoc()){
                                             echo"<td>".$row2["nom_filiere"]."</td>";
                                         }
-                                        
-                                        
-                                        echo"<td class='action-button'><a href='' title='Voir l étudiant ".$row['nom']." '><i class='fas fa-eye'></i></a> <a href='modifierEtudiant.php?id=".$row['id_etudiant']."' title='modifier l étudiant ".$row['nom']." '><i class='fas fa-edit'></i></a> <a href='supprimerEtudiant.php?id=".$row['id_etudiant']."' title='supprimer l étudiant ".$row['nom']." ' onclick='return confirm(".'"Supprimer l etudiant '.$row['nom'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
+
+                                        echo"<td class='action-button'><a href='' title='Voir la matiere ".$row['nom_matiere']." '><i class='fas fa-eye'></i></a> <a href='modifierMatiere.php?id=".$row['id_matiere']."' title='modifier la matiere ".$row['nom_matiere']." '><i class='fas fa-edit'></i></a> <a href='supprimerMatiere.php?id=".$row['id_matiere']."' title='supprimer la matiere ".$row['nom_matiere']." ' onclick='return confirm(".'"Supprimer la matiere '.$row['nom_matiere'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
+
                                         echo"</tr>";
                                     }
                                     
                                 } catch (Exception $ex) {
                                     $message ="Erreur ".$ex->getMessage();
-                                    $link = "afficherEtudiant.php";
+                                    $link = "afficherMatiere.php";
                                     displayInfo($message, $link);
                                 }
                         ?>
-                        <tr>
-                            
-                        </tr>
                     </table>
                 </div>
             </div>
