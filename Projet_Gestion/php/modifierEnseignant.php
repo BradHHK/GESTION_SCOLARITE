@@ -60,7 +60,7 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="modifierEnseignantScript.php" method="post">
+            <form action="modifierEnseignantScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
                         <h5>Modifier un enseignant</h5>

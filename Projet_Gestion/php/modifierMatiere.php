@@ -59,7 +59,7 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="modifierMatiereScript.php" method="post">
+            <form action="modifierMatiereScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
                         <h5>Modifier une matiere</h5>

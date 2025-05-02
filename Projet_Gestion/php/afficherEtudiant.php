@@ -93,7 +93,7 @@
                                         }
                                         
                                         
-                                        echo"<td class='action-button'><a href='' title='Voir l étudiant ".$row['nom']." '><i class='fas fa-eye'></i></a> <a href='modifierEtudiant.php?id=".$row['id_etudiant']."' title='modifier l étudiant ".$row['nom']." '><i class='fas fa-edit'></i></a> <a href='supprimerEtudiant.php?id=".$row['id_etudiant']."' title='supprimer l étudiant ".$row['nom']." ' onclick='return confirm(".'"Supprimer l etudiant '.$row['nom'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
+                                        echo"<td class='action-button'><a href='afficherNote.php?id=".$row['id_etudiant']."' title='Voir l étudiant ".$row['nom']." '><i class='fas fa-eye'></i></a> <a href='modifierEtudiant.php?id=".$row['id_etudiant']."' title='modifier l étudiant ".$row['nom']." '><i class='fas fa-edit'></i></a> <a href='supprimerEtudiant.php?id=".$row['id_etudiant']."' title='supprimer l étudiant ".$row['nom']." ' onclick='return confirm(".'"Supprimer l etudiant '.$row['nom'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
                                         echo"</tr>";
                                     }
                                     

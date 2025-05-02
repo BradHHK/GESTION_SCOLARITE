@@ -50,7 +50,7 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="AjouterEtudiantScript.php" method="post">
+            <form action="AjouterEtudiantScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
                         <h5>Ajouter un etudiant</h5>

@@ -1,3 +1,15 @@
+<?php
+    require_once "db_connect.php";
+    require_once "functions.php";
+    session_start();
+    if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
+        $id = $_GET["id"];
+        $_SESSION['id_etudiant'] = $id;
+    } else {
+        header("location:afficherEtudiant.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +18,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Afficher les enseignants</title>
+    <title>Panneau Eleve - Afficher les notes</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Afficher les enseignants</h5>
+            <h5>Panneau Eleve - Afficher les notes</h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
@@ -50,46 +62,63 @@
         <div class="optionAfficher">
             <div class="container">
                 <div class="text-header">
-                    <h5>Liste des enseignants</h5>
+                    <h5>Liste des notes</h5>
                     
-                    <form action="" method="post" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
+                    <form action="" class="recherche-Pan"><input type="text" required placeholder="nom de la matiere"><button type="submit" class="fa-solid fa-search"></button></form>
                 </div>
                 <div class="div-contain">
                     <table>
                         <tr>
                             <th></th>
-                            <th>Matricule</th>
-                            <th>Nom</th>
-                            <th>Prenom</th>
-                            <th>Email</th>
+                            <th>Matiere</th>
+                            <th>Note</th>
+                            <th>Date de l'évaluation</th>
+                            <th>Appréciation</th>
+                            <th></th>
                         </tr>
                         <?php 
                                 require_once "db_connect.php";
                                 require_once "functions.php";
                                 try {     
-                                    $statement = $con->prepare("SELECT id_enseignant, Matricule, nom, prenom, email FROM enseignants");
-                                    $statement->execute();
-                                    $result = $statement->get_result();
-                                    
+                                    $statement1 = $con->prepare("SELECT * FROM matieres as mat, etudiants as etu, evaluations as eval where (mat.id_matiere = eval.id_matiere AND etu.id_etudiant = eval.id_etudiant AND etu.id_etudiant = ?)");
+                                    $statement1->bind_param("i", $id_etudiant);
+                                    $id_etudiant = $_SESSION['id_etudiant'];
+                                    $statement1->execute();
+                                    $result = $statement1->get_result();
                                     while($row = $result->fetch_assoc()){
-                                        
                                         echo"<tr>";
-                                        echo"<td><span><i class='fas fa-user-tie'></span></td>
-                                            <td>".$row["Matricule"]."</td>
-                                            <td>".$row["nom"]."</td>
-                                            <td>".$row["prenom"]."</td>
-                                            <td>".$row["email"]."</td>";
-
-                                            echo"<td class='action-button'><a href='attribuerNote.php?id=".$row['id_enseignant']."' title='Voir l enseignant ".$row['nom']." '><i class='fas fa-eye'></i></a> <a href='modifierEnseignant.php?id=".$row['id_enseignant']."' title='modifier l enseignant ".$row['nom']." '><i class='fas fa-edit'></i></a> <a href='supprimerEnseignant.php?id=".$row['id_enseignant']."' title='supprimer l enseignant ".$row['nom']." ' onclick='return confirm(".'"Supprimer l enseignant '.$row['nom'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
+                                        if($row["note"] >= 12){
+                                            
+                                            echo"<td><span><i class='fas fa-circle-check' style='color:green;'></i></span></td>
+                                            <td>".$row["nom_matiere"]."</td>
+                                            <td>".$row["note"]."</td>
+                                            <td>".$row["date_evaluation"]."</td>
+                                            <td style='color: green;'> Validé </td>";
+                                            
+                                        }
+                                        else{
+                                        
+                                            echo"<td><span><i class='fas fa-circle-xmark' style='color:red;'></i></span></td>
+                                            <td>".$row["nom_matiere"]."</td>
+                                            <td>".$row["note"]."</td>
+                                            <td>".$row["date_evaluation"]."</td>
+                                            <td style='color: red;'>Non validé</td>";
+                                           
+                                        }
+                                        echo"<td class='action-button'><a href='' title='Déposer une requête concernant la note de la note ".$row['nom_matiere']." '><i class='fas fa-paper-plane'></i></a></td>";
                                         echo"</tr>";
                                     }
                                     
+                                    
                                 } catch (Exception $ex) {
                                     $message ="Erreur ".$ex->getMessage();
-                                    $link = "afficherEnseignant.php";
+                                    $link = "afficherEtudiant.php";
                                     displayInfo($message, $link);
                                 }
                         ?>
+                        <tr>
+                            
+                        </tr>
                     </table>
                 </div>
             </div>

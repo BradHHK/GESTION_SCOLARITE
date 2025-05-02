@@ -50,7 +50,7 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="AjouterMatiereScript.php" method="post">
+            <form action="AjouterMatiereScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
                         <h5>Ajouter une matiere</h5>

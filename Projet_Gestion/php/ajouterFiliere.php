@@ -50,7 +50,7 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="AjouterFiliereScript.php" method="post">
+            <form action="AjouterFiliereScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
                         <h5>Ajouter Filiere</h5>

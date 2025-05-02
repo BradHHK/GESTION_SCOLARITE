@@ -60,7 +60,7 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="modifierEtudiantScript.php" method="post">
+            <form action="modifierEtudiantScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
                         <h5>Modifier un etudiant</h5>
