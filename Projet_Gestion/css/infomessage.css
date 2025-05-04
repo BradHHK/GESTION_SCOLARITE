@@ -59,51 +59,78 @@ hr{
     font-size: 20px;
     color: rgb(78, 79, 81);
 }
+/* Ajouts pour infomessage.css */
 
-@media (max-width:1024px) {
-    #_boutonClose{
-        position: relative;
-        color: #278398;
-        top: 20%;
-        right: -185px;
-        background-color: transparent;
-        border: none;
-        font-size: 20px;
+@media screen and (max-width: 992px) {
+    #_message_login {
+        width: 35%;
+        margin-left: 35%;
     }
-
-    .message_corp{
-        font-size: 15px;
+    
+    #_boutonClose {
+        right: -180px;
     }
-
-    .logo{
-        position: relative;
-        height: 55px;
-        width: 55px;
-        left: -70%;
-        top: -35%;
+    
+    .logo {
+        height: 60px;
+        width: 60px;
+        left: -60%;
     }
 }
 
-@media (max-width:764px) {
-    #_boutonClose{
-        position: relative;
-        color: #278398;
-        top: 20%;
-        right: -170px;
-        background-color: transparent;
-        border: none;
-        font-size: 20px;
+@media screen and (max-width: 768px) {
+    #_message_login {
+        width: 60%;
+        margin-left: 20%;
     }
-
-    .message_corp{
-        font-size: 10px;
+    
+    #_boutonClose {
+        right: -120px;
+        top: 15%;
     }
+    
+    .logo {
+        height: 50px;
+        width: 50px;
+        left: -50%;
+        top: -25%;
+    }
+    
+    .message_corp {
+        font-size: 16px;
+    }
+}
 
-    .logo{
-        position: relative;
-        height: 45px;
-        width: 45px;
-        left: -70%;
-        top: -35%;
+@media screen and (max-width: 576px) {
+    #_message_login {
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    
+    #_boutonClose {
+        right: -90px;
+        top: 10%;
+        font-size: 18px;
+    }
+    
+    .logo {
+        position: static;
+        height: 40px;
+        width: 40px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    #_message_title {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .message_corp {
+        font-size: 14px;
+        padding: 0 10px;
     }
 }

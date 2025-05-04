@@ -82,3 +82,114 @@ fieldset legend{
     padding-right: 10%;
     box-sizing: border-box;
 }
+
+
+/* ✅ Écrans larges : Desktop ≥ 1200px */
+@media (min-width: 1200px) {
+    body {
+        font-size: 100%;
+    }
+
+    .logo {
+        width: 30%;
+        height: auto;
+    }
+
+    #_form_login, #_form_loginadmin {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+/* ✅ Tablettes : 768px à 1199px */
+@media (max-width: 1199px) and (min-width: 768px) {
+    body {
+        font-size: 90%;
+    }
+
+    .logo {
+        width: 40%;
+        height: auto;
+    }
+
+    .custom-image, #imageLogin, #imageAdmin {
+        height: 70% !important;
+    }
+
+    #customBox, #customBoxLogin {
+        height: auto !important;
+    }
+
+    #_form_login, #_form_loginadmin {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+/* Ajouts pour style.css */
+
+@media screen and (max-width: 992px) {
+    .logo {
+        width: 45%;
+        left: -10%;
+    }
+    
+    #customBox, #customBoxLogin {
+        height: auto !important;
+        padding: 3%;
+    }
+    
+    #_form_login, #_form_loginadmin {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 50%;
+        left: 0;
+        transform: none;
+        top: 0;
+        margin-bottom: 15px;
+    }
+    
+    #imageLogin, #imageAdmin {
+        height: 50% !important;
+        top: 0;
+    }
+    
+    #_form_login {
+        height: 50%;
+        padding-top: 3%;
+    }
+    
+    fieldset legend {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .logo {
+        width: 60%;
+        height: auto;
+    }
+    
+    #customBox, #customBoxLogin {
+        padding: 5%;
+    }
+    
+    #_form_login, #_form_loginadmin {
+        padding-left: 5%;
+        padding-right: 5%;
+        height: 60%;
+    }
+    
+    #imageLogin, #imageAdmin {
+        height: 40% !important;
+    }
+    
+    .custom-image {
+        clip-path: none;
+        top: 0;
+    }
+}

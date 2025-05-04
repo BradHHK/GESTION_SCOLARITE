@@ -778,3 +778,124 @@ button[type="reset"]{
 body{
     overflow-y: hidden;
 }
+
+/* Ajouts pour panel.css */
+
+@media screen and (max-width: 1200px) {
+    .left-menu {
+        width: 22%;
+    }
+    
+    .option .card {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+    
+    .optionAjouter .form {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .left-menu {
+        width: 25%;
+    }
+    
+    .header {
+        font-size: 14px;
+    }
+    
+    .option .card {
+        width: 45%;
+    }
+    
+    .option .card-text p {
+        font-size: 12px;
+    }
+    
+    .optionAfficher .action-button {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .head {
+        min-height: 8vh;
+    }
+    
+    .arrow {
+        width: 8%;
+    }
+    
+    .left-menu {
+        width: 35%;
+        position: absolute;
+        z-index: 1000;
+    }
+    
+    .option, .optionAjouter, .optionAfficher {
+        padding: 5%;
+    }
+    
+    .option .card {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    
+    .optionAjouter .form {
+        width: 90%;
+    }
+    
+    .optionAfficher table th,
+    .optionAfficher table td {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .optionAfficher .text-header .recherche-Pan {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .head {
+        min-height: 6vh;
+    }
+    
+    .arrow {
+        width: 10%;
+        min-height: 6vh;
+    }
+    
+    .left-menu {
+        width: 70%;
+    }
+    
+    .navbar ul .link a {
+        font-size: 11px;
+    }
+    
+    .option .card-text h5 {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    
+    .optionAfficher .text-header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .optionAfficher .text-header h5 {
+        margin-bottom: 10px;
+    }
+    
+    .optionAfficher .text-header .recherche-Pan {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .optionAfficher .action-button {
+        width: 40%;
+    }
+}
