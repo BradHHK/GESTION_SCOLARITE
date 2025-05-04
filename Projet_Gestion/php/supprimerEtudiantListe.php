@@ -87,7 +87,7 @@
                                 <th>Prenom</th>
                                 <th>Date de naissance</th>
                                 <th>Filiere</th>
-                                
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,12 +119,13 @@
                                         }
                                         
                                         
+                                        echo"<td class='action-button'><a href='supprimerEtudiant.php?id=".$row['id_etudiant']."' title='supprimer l étudiant ".$row['nom']." ' onclick='return confirm(".'"Supprimer l etudiant '.$row['nom'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
                                         echo"</tr>";
                                     }
                                     
                                 } catch (Exception $ex) {
                                     $message ="Erreur ".$ex->getMessage();
-                                    $link = "afficherEtudiant.php";
+                                    $link = "supprimerEtudiantListe.php";
                                     displayInfo($message, $link);
                                 }
                         ?>

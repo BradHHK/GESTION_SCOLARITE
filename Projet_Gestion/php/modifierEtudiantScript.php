@@ -1,5 +1,11 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["AdminLogin"]) || !isset($_SESSION["AdminPassword"])){
+        header("location:../adminLogin.html");
+    }
+?>
 <?php
-    session_start(); 
+    
     require_once "db_connect.php";
     require_once "functions.php";
 
@@ -20,23 +26,23 @@
                 $message ="Etudiant  <br>
                 Nom et Prenom : ".$nom." ".$prenom."<br>
                 date de naissance : ".$dateNaissance." <br> modifié(e) avec succès ";
-                $link = "afficherEtudiant.php";
+                $link = "modifierEtudiantListe.php";
                 displayInfo($message, $link); 
             }else{
                 $message ="Erreur Inconnu";
-                $link = "afficherEtudiant.php";
+                $link = "modifierEtudiantListe.php";
                 displayInfo($message, $link);
             }
         } catch (Exception $ex) {
             $message ="Erreur ".$ex->getMessage();
-            $link = "afficherEtudiant.php";
+            $link = "modifierEtudiantListe.php";
             displayInfo($message, $link);
         }
         
         
     }else{
         $message = "Veillez remplir tout les champs";
-        $link = "afficherEnseignante.php";
+        $link = "modifierEtudiantListe.php";
         displayInfo($message, $link);
     }
  ?>

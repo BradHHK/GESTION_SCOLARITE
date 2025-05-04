@@ -1,4 +1,0 @@
-SELECT c1.NOM, c1.NUM_C, c1.VILLE
-FROM client  C1, client  C2
-WHERE (C2.NUM_C like 'C2' AND C1.VILLE = C2.VILLE AND C1.NUM_C <> C2.NUM_C);
-

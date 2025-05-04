@@ -23,7 +23,7 @@
                         if(password_verify($password,$row["password"])){
                             if(strcmp($row['statut'], "Activé")==0){
                                 $message ="<br>Bienvenue  ".$row['login']." sur Etusoft<br><br>";
-                                $link = "../enseignantPanel.html";
+                                $link = "enseignantPanel.php";
                                 displayInfo($message, $link);
                             }else{
                                 $message ="<br>Mr  ".$row['login']." compte suspendu sur Etusoft<br><br> Veillez contacter un administrateur<br>";
@@ -56,7 +56,7 @@
                         if(password_verify($password,$row["password"])){
                             if(strcmp($row['statut'], "Activé")==0){
                                 $message ="<br>Bienvenue  ".$row['login']." sur Etusoft<br><br>";
-                                $link = "../etudiantPanel.html";
+                                $link = "etudiantPanel.php";
                                 displayInfo($message, $link);
                             }else{
                                 $message ="<br>Mr  ".$row['login']." compte suspendu sur Etusoft<br><br> Veillez contacter un administrateur<br>";

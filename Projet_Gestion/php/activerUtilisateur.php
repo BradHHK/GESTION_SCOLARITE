@@ -5,37 +5,39 @@
     }
 ?>
 <?php
+    
     require_once "db_connect.php";
     require_once "functions.php";
 
-    if(isset($_POST["Nom"])){
-        session_start();    
+    if(isset($_GET["id_account"]) && is_numeric($_GET["id_account"])){
+           
         try {            
-            $statement = $con->prepare("INSERT INTO filieres(nom_filiere) VALUE(?)");
-            $statement->bind_param("s", $nom);
-            $nomBrut = $_POST["Nom"];
-            $nom = ucwords(strtolower($nomBrut));        
+            $statement = $con->prepare("UPDATE accounts set statut = 'Activé' where id_accounts = ?");
+            $statement->bind_param("i", $id);
+           
+            $id = $_GET["id_account"];
+        
             if($statement->execute()){
-                $message ="Filiere  <br>
-                Nom  : ".$nom." <br>
-                <br> ajouter avec succès ";
-                $link = "ajouterFiliere.php";
+                $message ="Compte  <br>
+                Compte activé avec succès<br>
+                ";
+                $link = "activerUtilisateurListe.php";
                 displayInfo($message, $link); 
             }else{
                 $message ="Erreur Inconnu";
-                $link = "ajouterFiliere.php";
+                $link = "activerUtilisateurListe.php";
                 displayInfo($message, $link);
             }
         } catch (Exception $ex) {
             $message ="Erreur ".$ex->getMessage();
-            $link = "ajouterFiliere.php";
+            $link = "activerUtilisateurListe.php";
             displayInfo($message, $link);
         }
         
         
     }else{
         $message = "Veillez remplir tout les champs";
-        $link = "ajouterFiliere.php";
+        $link = "activerUtilisateurListe.php";
         displayInfo($message, $link);
     }
  ?>

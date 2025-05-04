@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["AdminLogin"]) || !isset($_SESSION["AdminPassword"])){
+        header("location:../adminLogin.html");
+    }
+?>
 <?php
     require_once "db_connect.php";
     require_once "functions.php";
@@ -13,25 +19,25 @@
                 if($statement->execute()){
                     
                     $message ="<br> Matiere supprimée avec succès ";
-                    $link = "afficherMatiere.php";
+                    $link = "supprimerMatiereListe.php";
                     displayInfo($message, $link);
                             
                 }else{
                     $message = "Erreur etudiant inconnu(e)";
-                    $link = "afficherMatiere.php";
+                    $link = "supprimerMatiereListe.php";
                     displayInfo($message, $link);
                 }
             
         } catch (Exception $ex) {
             $message ="Erreur ".$ex->getMessage();
-            $link = "afficherMatiere.php";
+            $link = "supprimerMatiereListe.php";
             displayInfo($message, $link);
         }
         
         
     }else{
         $message = "Erreur supprission impossible !";
-        $link = "afficherMatiere.php";
+        $link = "supprimerMatiereListe.php";
         displayInfo($message, $link);
     }
  ?>

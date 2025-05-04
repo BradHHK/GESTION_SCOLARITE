@@ -1,4 +1,3 @@
-
 <?php 
     session_start();
     if(!isset($_SESSION["AdminLogin"]) || !isset($_SESSION["AdminPassword"])){
@@ -8,15 +7,14 @@
 <?php
     require_once "db_connect.php";
     require_once "functions.php";
-  
+    
     if(isset($_GET["id"]) && is_numeric($_GET["id"])){
         $id = $_GET["id"];
-        $_SESSION['id_etudiant'] = $id;
+        $_SESSION['id_filiere'] = $id;
     }else{
-        header("location:afficherEtudiant.php");
+        header("location:modifierFiliereListe.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +23,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur -  Modifier un etudiant</title>
+    <title>Panneau Administrateur - Modifier une filiere </title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur -  Modifier un etudiant</h5>
+            <h5>Panneau Administrateur - Modifier une filiere </h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i></span>
         </header>
     </div>
@@ -84,17 +82,19 @@
             </nav>
         </div>
         <div class="optionAjouter">  
-            <form action="modifierEtudiantScript.php" method="post"  class= "form">
+            <form action="modifierFiliereScript.php" method="post"  class= "form">
                     
                     <div class="text-header">
-                        <h5>Modifier un etudiant</h5>
+                        <h5>Modifier une filiere</h5>
                     </div>
                         
                     <div class="form-contain">
                         <table>
                             <div class="imageContain"></div>
                             <tr>
-                                <td>Nom </td>
+                                <td>
+                                    Nom
+                                </td>
                                 <td><input type="text" name="Nom" value="
                                     <?php
                                         require_once "db_connect.php";
@@ -102,111 +102,26 @@
 
                                         try {
             
-                                            $statement = $con->prepare("SELECT * FROM etudiants where id_etudiant = ?");
+                                            $statement = $con->prepare("SELECT * FROM filieres where id_filiere = ?");
                                             $statement->bind_param("i", $id_etudiant);
                                             $id_etudiant = $_GET["id"];
                                         
                                             $statement->execute();
                                             $result = $statement->get_result();
                                             if($row = $result->fetch_assoc()){
-                                                echo htmlspecialchars($row["nom"]);
+                                                echo htmlspecialchars($row["nom_filiere"]);
                                             }
                                         
                                         } catch (Exception $ex) {
                                             $message ="Erreur ".$ex->getMessage();
-                                            $link = "modifierEtudiantListe.php";
+                                            $link = "modifierFiliereListe.php";
                                             displayInfo($message, $link);
                                         }
                                     ?>
                                     "required>
-                                
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Prenom </td>
-                                <td><input type="text" name="Prenom"  value="
-                                    <?php
-                                        require_once "db_connect.php";
-                                        require_once "functions.php";
-
-                                        try {
-            
-                                            $statement = $con->prepare("SELECT * FROM etudiants where id_etudiant = ?");
-                                            $statement->bind_param("i", $id_etudiant);
-                                            $id_etudiant = $_GET["id"];
-                                        
-                                            $statement->execute();
-                                            $result = $statement->get_result();
-                                            if($row = $result->fetch_assoc()){
-                                                echo htmlspecialchars($row["prenom"]);
-                                            }
-                                        
-                                        } catch (Exception $ex) {
-                                            $message ="Erreur ".$ex->getMessage();
-                                            $link = "modifierEtudiantListe.php";
-                                            displayInfo($message, $link);
-                                        }
-                                    ?>
-                                    "required>
-                                
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Date de naissance </td>
-                                <td><input type="date" name="dateNaissance" id="dateNaissance"  value="
-                                    <?php
-                                        require_once "db_connect.php";
-                                        require_once "functions.php";
-
-                                        try {
-            
-                                            $statement = $con->prepare("SELECT * FROM etudiants where id_etudiant = ?");
-                                            $statement->bind_param("i", $id_etudiant);
-                                            $id_etudiant = $_GET["id"];
-                                        
-                                            $statement->execute();
-                                            $result = $statement->get_result();
-                                            if($row = $result->fetch_assoc()){
-                                                echo $row["date_naissance"];
-                                            }
-                                        
-                                        } catch (Exception $ex) {
-                                            $message ="Erreur ".$ex->getMessage();
-                                            $link = "modifierEtudiantListe.php";
-                                            displayInfo($message, $link);
-                                        }
-                                    ?>
-                                    "required>
-                                
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Filiere </td>
-                                <td>
-                                    <select name="filiere" id="filiere">
-                                        
-                                        <?php
-                                            require_once "db_connect.php";
-                                            require_once "functions.php";
-                                            try {
-                                                
-                                                $statement = $con->prepare("SELECT * FROM filieres");
-                                                $statement->execute();
-                                                $result = $statement->get_result();
-                                                while($row = $result->fetch_assoc()){
-                                                    echo "<option value='".$row['id_filiere']."'>".$row['nom_filiere']."</option>";
-                                                }
-                                                
-                                            } catch (Exception $ex) {
-                                                $message ="Erreur ".$ex->getMessage();
-                                                $link = "modifierEtudiantListe.php";
-                                                displayInfo($message, $link);
-                                            }
-                                            
-                                        ?>
-                                    </select>
-                                </td>
-                            </tr>
+                            
                         </table>
                     </div>
                         

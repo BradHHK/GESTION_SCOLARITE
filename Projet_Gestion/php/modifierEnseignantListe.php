@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Afficher les étudiants</title>
+    <title>Panneau Administrateur - Afficher les enseignants</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Afficher les étudiants</h5>
+            <h5>Panneau Administrateur - Afficher les enseignants</h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
@@ -73,9 +73,9 @@
         <div class="optionAfficher">
             <div class="container">
                 <div class="text-header">
-                    <h5>Liste des étudiants</h5>
+                    <h5>Liste des enseignants</h5>
                     
-                    <form action="" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
+                    <form action="" method="post" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
                 </div>
                 <div class="div-contain">
                     <table>
@@ -85,9 +85,8 @@
                                 <th>Matricule</th>
                                 <th>Nom</th>
                                 <th>Prenom</th>
-                                <th>Date de naissance</th>
-                                <th>Filiere</th>
-                                
+                                <th>Email</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,42 +94,29 @@
                                 require_once "db_connect.php";
                                 require_once "functions.php";
                                 try {     
-                                    $statement = $con->prepare("SELECT id_etudiant, Matricule, nom, prenom, date_naissance, id_filiere FROM etudiants");
+                                    $statement = $con->prepare("SELECT id_enseignant, Matricule, nom, prenom, email FROM enseignants");
                                     $statement->execute();
                                     $result = $statement->get_result();
                                     
                                     while($row = $result->fetch_assoc()){
                                         
                                         echo"<tr>";
-                                        echo"<td><span><i class='fas fa-user-graduate'></span></td>
+                                        echo"<td><span><i class='fas fa-user-tie'></span></td>
                                             <td>".$row["Matricule"]."</td>
                                             <td>".$row["nom"]."</td>
                                             <td>".$row["prenom"]."</td>
-                                            <td>".$row["date_naissance"]."</td>";
+                                            <td>".$row["email"]."</td>";
 
-                                  
-                                        $statement2 = $con->prepare("SELECT nom_filiere FROM filieres where (id_filiere = ?)");
-                                        $statement2->bind_param("i",$id);
-                                        $id = $row["id_filiere"];
-                                        $statement2->execute();
-                                        $result2 = $statement2->get_result();
-                                        if($row2 = $result2->fetch_assoc()){
-                                            echo"<td>".$row2["nom_filiere"]."</td>";
-                                        }
-                                        
-                                        
+                                            echo"<td class='action-button'></a> <a href='modifierEnseignant.php?id=".$row['id_enseignant']."' title='modifier l enseignant ".$row['nom']." '><i class='fas fa-edit'></i></a></td>";
                                         echo"</tr>";
                                     }
                                     
                                 } catch (Exception $ex) {
                                     $message ="Erreur ".$ex->getMessage();
-                                    $link = "afficherEtudiant.php";
+                                    $link = "afficherEnseignant.php";
                                     displayInfo($message, $link);
                                 }
                         ?>
-                        <tr>
-                            
-                        </tr>
                         </tbody>
                     </table>
                 </div>

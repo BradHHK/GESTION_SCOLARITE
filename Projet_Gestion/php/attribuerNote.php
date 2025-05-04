@@ -1,7 +1,12 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["AdminLogin"]) || !isset($_SESSION["AdminPassword"])){
+        header("location:../adminLogin.html");
+    }
+?>
 <?php
     require_once "db_connect.php";
     require_once "functions.php";
-    session_start();
 
     if (isset($_SESSION["id_matiere"])) {
         unset($_SESSION["id_matiere"]);
@@ -45,11 +50,11 @@
             <nav class="navbar">
                 <ul>
                     <li class="link"><i class="fa-solid fa-book-open"></i><a href="#">Gestion des matieres</a></li>
-                    <ul>
-                        <li><a href="#">Afficher les matieres</a></li>
-                        <li><a href="#">Ajouter une matiere</a></li>
-                        <li><a href="#">Modifier une matiere</a></li>
-                        <li><a href="#">Supprimer une matiere</a></li>
+                    <ul class="MatiereListe">
+                        <li><a href="afficherMatiere.php" >Afficher les matieres</a></li>
+                        <li><a href="ajouterMatiere.php" >Ajouter une matiere</a></li>
+                        <li><a href="modifierMatiereListe.php" >Modifier une matiere</a></li>
+                        <li><a href="supprimerMatiereListe.php" >Supprimer une matiere</a></li>
                     </ul>
                     <li class="link"><i class="fa-solid fa-note-sticky"></i><a href="#">Gestion des filieres</a></li>
                     <ul>

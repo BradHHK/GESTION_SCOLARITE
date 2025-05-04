@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["AdminLogin"]) || !isset($_SESSION["AdminPassword"])){
+        header("location:../adminLogin.html");
+    }
+?>
 <?php
     session_start(); 
     require_once "db_connect.php";
@@ -18,23 +24,23 @@
             if($statement->execute()){
                 $message ="Matiere  <br>
                 Nom : ".$nom." <br><br><br> Modifié avec succès";
-                $link = "afficherMatiere.php";
+                $link = "modifierMatiereListe.php";
                 displayInfo($message, $link); 
             }else{
                 $message ="Erreur Inconnu";
-                $link = "afficherMatiere.php";
+                $link = "modifierMatiereListe.php";
                 displayInfo($message, $link);
             }
         } catch (Exception $ex) {
             $message ="Erreur ".$ex->getMessage();
-            $link = "afficherMatiere.php";
+            $link = "modifierMatiereListe.php";
             displayInfo($message, $link);
         }
         
         
     }else{
         $message = "Veillez remplir tout les champs";
-        $link = "afficherMatiere.php";
+        $link = "modifierMatiereListe.php";
         displayInfo($message, $link);
     }
  ?>

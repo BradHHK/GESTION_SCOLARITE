@@ -154,8 +154,8 @@ h5{
 }
 
 .left-menu{
-    width: 18%;
-    min-height: 60vh;
+    width: 20%;
+    height: 80vh;
     margin-left: .8%;
     position: fixed;
     clip-path: inset(0 0% 0 0% round 0% 10% 0 0%);
@@ -163,6 +163,7 @@ h5{
     box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
     border-bottom: .3px solid rgb(122, 163, 122) ;
     z-index: 100;
+    overflow-y: auto;
 }
 
 .left-menu.close{
@@ -272,23 +273,54 @@ h5{
     display: flex;
     flex-direction: row;
     padding-right: 0%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 7%;
+    padding-bottom: 7%;
     color: rgb(2, 54, 46);
-    font-size: 13px;
+    font-size: 14px;
 }
 
-.navbar ul .link i{
-    font-size: 13px;
+.navbar ul i{
+    font-size: 15px;
     color: #007f5f;
 }
 
-.navbar ul ul li a{
-    padding-left: 10%;
-    padding-bottom: 5%;
+.navbar ul ul li{
+    display: flex;
+    flex-direction: row;
     align-items: center;
+}
+
+.navbar ul ul li a{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    margin-left: 5%;
+    align-items: center;
+    font-size: 13px;
+    color: #0d262a;
+    transition: 1s;
+}
+
+.navbar ul ul li a:hover{
+    color: #007f5f;
+    transition: 1s;
+}
+
+.navbar ul ul ul li a{
+    padding-bottom: 5%;
+    padding-top: 5%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     font-size: 12px;
     color: #0d262a;
+    transition: 1s;
+}
+
+.navbar ul ul ul li a:hover{
+    color: #007f5f;
+    transition: 1s;
 }
 
 .navbar ul ul li a{
@@ -326,6 +358,7 @@ h5{
     flex-direction: column;
     border: .3px solid #e0f7fa;
     border-radius: 1.2rem;
+    overflow: hidden;
     justify-content: space-around;
 }
 
@@ -334,18 +367,21 @@ h5{
     height: 100%;
     border-radius: 1.2rem;
     transition: .5s;
+    overflow: hidden;
     
 }
 
 .option .card img:hover{
     transform:scale(1.5);
     transition: .5s;
+    overflow: hidden;
 }
 .option .card .card-image{
     width: 85%;
     height: 45%;
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
     background-color: #f1f8fb;
+    overflow: hidden;
 }
 
 .option .card .card-text{
@@ -360,11 +396,13 @@ h5{
     background-color: #f1f8fb;
     transition: .5s;
     clip-path: inset(0 0 0 0 round 5% 20% 0 10%);
+    overflow: hidden;
 }
 
 .option .card .card-text:hover{
     transform:scale(1.2);
     transition: 1s;
+    overflow: hidden;
 }
 
 .option .card .card-text h5{
@@ -775,6 +813,62 @@ button[type="reset"]{
     color: #d9171d;
 }
 
+.FiliereListe{
+    display: none !important;
+    transition: 1s;
+}
+
+.MatiereListe{
+    display: none !important;
+    transition: 1s;
+}
+
+.EtudiantListe{
+    display: none !important;
+    transition: 1s;
+}
+
+.EnseignantListe{
+    display: none !important;
+    transition: 1s;
+}
+.CompteListe{
+    display: none !important;
+    transition: 1s;
+}
+
+.UtilisateurListe{
+    display: none !important;
+    transition: 1s;
+}
+
+.MatiereListe.close{
+    display: block !important;
+    transition: 1s;
+}
+.FiliereListe.close{
+    display: block !important;
+    transition: 1s;
+}
+
+.CompteListe.close{
+    display: block !important;
+    transition: 1s;
+}
+.UtilisateurListe.close{
+    display: block !important;
+    transition: 1s;
+}
+
+.EnseignantListe.close{
+    display: block !important;
+    transition: 1s;
+}
+.EtudiantListe.close{
+    display: block !important;
+    transition: 1s;
+}
+
 body{
     overflow-y: hidden;
 }
@@ -789,6 +883,7 @@ body{
     .option .card {
         width: 30%;
         margin-bottom: 20px;
+        height: 50%;
     }
     
     .optionAjouter .form {
@@ -807,6 +902,7 @@ body{
     
     .option .card {
         width: 45%;
+        height: 50%;
     }
     
     .option .card-text p {
@@ -838,8 +934,9 @@ body{
     }
     
     .option .card {
-        width: 100%;
+        width: 80%;
         margin-bottom: 25px;
+        height: 22%;
     }
     
     .optionAjouter .form {

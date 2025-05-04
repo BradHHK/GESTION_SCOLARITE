@@ -2,16 +2,16 @@
     require_once "db_connect.php";
     require_once "functions.php";
 
-    if(isset($_POST["Login"]) && isset($_POST["Password"])){
+    if(isset($_POST["AdminLogin"]) && isset($_POST["AdminPassword"])){
         session_start();
-        $_SESSION["Login"] = $_POST["Login"];
-        $_SESSION["Password"] = $_POST["Password"];
+        $_SESSION["AdminLogin"] = $_POST["AdminLogin"];
+        $_SESSION["AdminPassword"] = $_POST["AdminPassword"];
         try {            
             $statement = $con->prepare("SELECT * FROM accounts where (login like ? AND id_role = ?)");
             $statement->bind_param("si", $nom,$role);
-            $nom = $_POST["Login"];
+            $nom = $_POST["AdminLogin"];
             $role = 3;
-            $password = $_POST["Password"];
+            $password = $_POST["AdminPassword"];
         
             $statement->execute();
             $result = $statement->get_result();
@@ -39,14 +39,14 @@
             }  
         } catch (Exception $ex) {
             $message ="Erreur ".$ex->getMessage();
-            $link = "../login.html";
+            $link = "../adminLogin.html";
             displayInfo($message, $link);
         }
         
         
     }else{
         $message = "Veillez remplir tout les champs";
-        $link = "../login.html";
+        $link = "../adminLogin.html";
         displayInfo($message, $link);
     }
  ?>

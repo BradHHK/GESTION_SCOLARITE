@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Afficher les étudiants</title>
+    <title>Panneau Administrateur - Afficher les utilisateurs</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Afficher les étudiants</h5>
+            <h5>Panneau Administrateur - Afficher les utilisateurs</h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
@@ -73,7 +73,7 @@
         <div class="optionAfficher">
             <div class="container">
                 <div class="text-header">
-                    <h5>Liste des étudiants</h5>
+                    <h5>Liste des utilisateurs</h5>
                     
                     <form action="" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
                 </div>
@@ -82,12 +82,9 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Matricule</th>
-                                <th>Nom</th>
-                                <th>Prenom</th>
-                                <th>Date de naissance</th>
-                                <th>Filiere</th>
-                                
+                                <th>Login</th>
+                                <th>Statut</th>
+                                <th>Rôle</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,27 +92,25 @@
                                 require_once "db_connect.php";
                                 require_once "functions.php";
                                 try {     
-                                    $statement = $con->prepare("SELECT id_etudiant, Matricule, nom, prenom, date_naissance, id_filiere FROM etudiants");
+                                    $statement = $con->prepare("SELECT * FROM accounts");
                                     $statement->execute();
                                     $result = $statement->get_result();
                                     
                                     while($row = $result->fetch_assoc()){
                                         
                                         echo"<tr>";
-                                        echo"<td><span><i class='fas fa-user-graduate'></span></td>
-                                            <td>".$row["Matricule"]."</td>
-                                            <td>".$row["nom"]."</td>
-                                            <td>".$row["prenom"]."</td>
-                                            <td>".$row["date_naissance"]."</td>";
-
+                                        echo"<td><span><i class='fas fa-users'></span></td>
+                                            <td>".$row["login"]."</td>
+                                            <td>".$row["statut"]."</td>
+                                            ";
                                   
-                                        $statement2 = $con->prepare("SELECT nom_filiere FROM filieres where (id_filiere = ?)");
+                                        $statement2 = $con->prepare("SELECT role FROM role where (id_role = ?)");
                                         $statement2->bind_param("i",$id);
-                                        $id = $row["id_filiere"];
+                                        $id = $row["id_role"];
                                         $statement2->execute();
                                         $result2 = $statement2->get_result();
                                         if($row2 = $result2->fetch_assoc()){
-                                            echo"<td>".$row2["nom_filiere"]."</td>";
+                                            echo"<td>".$row2["role"]."</td>";
                                         }
                                         
                                         
@@ -124,7 +119,7 @@
                                     
                                 } catch (Exception $ex) {
                                     $message ="Erreur ".$ex->getMessage();
-                                    $link = "afficherEtudiant.php";
+                                    $link = "afficherUtilisateur.php";
                                     displayInfo($message, $link);
                                 }
                         ?>
