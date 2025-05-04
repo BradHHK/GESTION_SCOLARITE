@@ -55,10 +55,14 @@
                 </div>
                 <div class="div-contain">
                     <table>
-                        <tr>
-                            <th></th>
-                            <th>Nom</th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nom</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php 
                                 require_once "db_connect.php";
                                 require_once "functions.php";
@@ -83,6 +87,7 @@
                                     displayInfo($message, $link);
                                 }
                         ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
