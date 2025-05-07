@@ -66,8 +66,8 @@
                             <li><a href="suspendreUtilisateurListe.php" >Suspendre un utilisateur</a></li>
                         </ul>
                     </ul>
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="#" >Paramètres</a></li>
-                    
+                    <li class="link"><i class="fas fa-chart-column"></i><a href="statistiquesAdmin.php" >Statistiques</a></li><li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
+                
                 </ul>
             </nav>
         </div>

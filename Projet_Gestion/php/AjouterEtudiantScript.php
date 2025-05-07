@@ -9,7 +9,7 @@
     require_once "functions.php";
 
     if(isset($_POST["Nom"]) && isset($_POST["Prenom"]) && isset($_POST["dateNaissance"]) && isset($_POST["filiere"])){
-        session_start();    
+           
         try {            
             $statement = $con->prepare("INSERT INTO etudiants(Matricule, nom, prenom, date_naissance, id_filiere) VALUES(?,?,?,?,?)");
             $statement->bind_param("ssssi",$matricule, $nom, $prenom, $dateNaissance, $id_filiere);

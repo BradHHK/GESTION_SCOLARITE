@@ -10,7 +10,7 @@
         try {
             $role = $_POST["role"];
             if(strcmp($role, "enseignant")==0){
-                $statement = $con->prepare("SELECT Nom, prenom FROM enseignants where matricule like ?");
+                $statement = $con->prepare("SELECT id_enseignant,Nom, prenom FROM enseignants where matricule like ?");
                 $statement->bind_param("s", $matricule);
                 $nom = $_POST["nom_prenom"];
                 $matriculeBrut = $_POST["id_Etudiant_Enseignant"];
@@ -23,9 +23,9 @@
                     if(strcmp(ucwords(strtolower($nom)) , $nomrecup)==0){
                         
                         $password = genererPassword(8);
-                        $statement = $con->prepare("INSERT INTO accounts(login, password, id_role) VALUES(?, ?, ?)");
-                        $statement->bind_param("ssi", $login, $hashPass, $role);
-
+                        $statement = $con->prepare("INSERT INTO accounts(id_proprietaire, login, password, id_role) VALUES(?,?, ?, ?)");
+                        $statement->bind_param("issi", $login, $hashPass, $role);
+                        $id_enseignant = $row["id_enseignant"];
                         $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);
                         $role = 2;
@@ -44,7 +44,7 @@
             }
 
             if(strcmp($role, "etudiant")==0){
-                $statement = $con->prepare("SELECT Nom, prenom FROM etudiants where Matricule like ?");
+                $statement = $con->prepare("SELECT id_etudiant, Nom, prenom FROM etudiants where Matricule like ?");
                 $statement->bind_param("s", $matricule);
                 $nom = $_POST["nom_prenom"];
                 $matriculeBrut = $_POST["id_Etudiant_Enseignant"];
@@ -57,9 +57,9 @@
                     if(strcmp(ucwords(strtolower($nom)), $nomrecup)==0){
                         
                         $password = genererPassword(8);
-                        $statement = $con->prepare("INSERT INTO accounts(login, password, id_role) VALUES(?, ?, ?)");
-                        $statement->bind_param("ssi", $login, $hashPass, $role);
-
+                        $statement = $con->prepare("INSERT INTO accounts(id_proprietaire, login, password, id_role) VALUES(?, ?, ?, ?)");
+                        $statement->bind_param("issi",$id_etudiant, $login, $hashPass, $role);
+                        $id_etudiant = $row["id_etudiant"];
                         $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);
                         $role = 1;
@@ -75,38 +75,8 @@
                     $message = "Erreur Etudiant(e) inconnu(e)";
                     displayInfoRecuperation($message);
                 }
-            }else{
-                $statement = $con->prepare("SELECT Nom, prenom FROM administrator where code like ?");
-                $statement->bind_param("s", $matricule);
-                $nom = $_POST["nom_prenom"];
-                $matricule = $_POST["id_Etudiant_Enseignant"];
-
-                $statement->execute();
-                $result = $statement->get_result();
-                if($row = $result->fetch_assoc()){
-                    $nomrecup = $row["Nom"]." ".$row["prenom"];
-                    if(strcmp($nom, $nomrecup)==0){
-                        
-                        $password = genererPassword(8);
-                        $statement = $con->prepare("INSERT INTO accounts(login, password, id_role) VALUES(?, ?, ?)");
-                        $statement->bind_param("ssi", $login, $hashPass, $role);
-
-                        $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
-                        $hashPass = password_hash($password, PASSWORD_DEFAULT);
-                        $role = 3;
-                        
-                        if($statement->execute()){
-                            $message ="<br>Bienvenue Mr ".$row['Nom']." ".$row['prenom']." <br><br> Voici vos identifiants de connection : <br> Login  : $login <br> Password : $password <br> <br>!!! Pensez à modifier votre mot de passe après votre connection  ";
-                            $link = "../adminLogin.html";
-                            displayInfo($message, $link);
-                        }
-                    }
-                    
-                }else{
-                    $message = "Erreur Administrateur(e) inconnu(e)";
-                    displayInfoRecuperation($message);
-                }
             }
+            
         } catch (Exception $ex) {
             $message ="Erreur ".$ex->getMessage();
             displayInfoRecuperation($message);

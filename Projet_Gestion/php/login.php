@@ -15,6 +15,7 @@
                 $nom = $_POST["Login"];
                 $role = 2;
                 $password = $_POST["Password"];
+                
         
                 $statement->execute();
                 $result = $statement->get_result();
@@ -22,6 +23,7 @@
                     foreach($result as $row):
                         if(password_verify($password,$row["password"])){
                             if(strcmp($row['statut'], "Activé")==0){
+                                $_SESSION["id_utilisateurs_enseignant"] = $row["id_proprietaire"];
                                 $message ="<br>Bienvenue  ".$row['login']." sur Etusoft<br><br>";
                                 $link = "enseignantPanel.php";
                                 displayInfo($message, $link);
@@ -55,6 +57,7 @@
                     foreach($result as $row):
                         if(password_verify($password,$row["password"])){
                             if(strcmp($row['statut'], "Activé")==0){
+                                $_SESSION["id_utilisateurs_etudiant"] = $row["id_proprietaire"];
                                 $message ="<br>Bienvenue  ".$row['login']." sur Etusoft<br><br>";
                                 $link = "etudiantPanel.php";
                                 displayInfo($message, $link);

@@ -466,8 +466,7 @@ h5{
 }
 
 .optionAjouter .form td{
-    padding: 1%;
-    padding-bottom: 30px;
+    padding: 4%;
 }
 
 .optionAjouter .form input[type="text"]{
@@ -572,7 +571,7 @@ h5{
 }
 
 .bouton-area{
-    background-color: #f1f8fb;
+    background-color: #f1f8fbae;
     align-items: center;
     text-align: center;
     display: flex;
@@ -589,22 +588,54 @@ button{
     border: .2px solid #fff;
     cursor: pointer;
     border-radius: .5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 button[type="submit"]{
-    background-color: #e0f7fa;
-    color: #007f5f;
+    background-color: #158f2f;
+    color: #c4dcd0;
+    transition: .5s ease-in;
 }
 
 button[type="reset"]{
     background-color: #eb575c;
     color: #eef2f3;
+    transition: .5s ease-in;
+}
+
+button[type="submit"]:hover{
+    color: #158f2f;
+    background-color: #c4dcd0;
+    transition: .5s ease-in;
+    transform: scale(1.02);
+}
+
+button[type="reset"]:hover{
+    color: #eb575c;
+    background-color: #eef2f3;
+    transition: .5s ease-in;
+    transform: scale(1.1);
 }
 
 .form-contain{
     height: 67%;
     width: 100%;
     padding: 5%;
+    background-color: #ecf2f9;
+}
+
+.form-contain table{
+    backdrop-filter: blur(20px);
+    border-collapse: separate;
+    border-spacing: 0 14px;
+}
+
+.form-contain table tbody tr{
+    background-color: rgba(255, 255, 255, 0.073);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius:1.2rem;
+    overflow: hidden;
+    transition: .5s ease;
 }
 
 .optionAfficher{
@@ -622,7 +653,7 @@ button[type="reset"]{
 
 .optionAfficher .div-contain{
     width: 100%;
-    height: 82%;
+    height: 80%;
     border-radius:1.2rem;
     background-color:linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.55));
     backdrop-filter: blur(20px);
@@ -630,6 +661,46 @@ button[type="reset"]{
     border: 1.5px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     padding: 20px;
+}
+
+.div-containE{
+    width: 100%;
+    height: 80%;
+    border-radius:1.2rem;
+    background-color:linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.55));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    padding: 20px;
+}
+
+
+.optionAfficher .bouton-area{
+    height: 10%;
+    width: 100%;
+}
+
+.optionAfficher .bouton-area form{
+    width: 10%;
+    height: 70%;
+}
+
+.optionAfficher .bouton-area button{
+    opacity: 0;
+    color: #023047;
+    background-color: #b5d7e8;
+    padding: 1%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.download.close{
+    opacity: 1 !important;
 }
 
 .optionAfficher .container{
@@ -649,6 +720,20 @@ button[type="reset"]{
 }
 
 .optionAfficher table{
+    width: 100%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 14px;
+    background: #ffffff80;
+    padding-left: .15%;
+    padding-right: .15%;
+    padding-bottom: .15%;
+    color: #1e3a5f;
+    border-radius: 1.2rem;
+
+}
+
+.tableE{
     width: 100%;
     text-align: center;
     border-collapse: separate;
@@ -761,9 +846,23 @@ button[type="reset"]{
     overflow-y: hidden;
 }
 
+.optionAfficher .text-header .recherche-Pan button{
+    background-color: #b5d7e8;
+    color: #fff;
+}
+
 
 .optionAfficher .text-header .recherche-Pan input{
     width: 80%;
+    height: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #0d262a;
+}
+
+.optionAfficher .text-header .recherche-Pan select{
+    width: 90%;
     height: 100%;
     text-align: center;
     background-color: transparent;
@@ -792,12 +891,6 @@ button[type="reset"]{
     font-size: 20px;
     margin: 10%;
     box-shadow: 0 4px 8px rgba(162, 141, 141, 0.1);
-    transition: 1s ease;
-}
-
-.optionAfficher .action-button a:hover{
-    transform: scale(1.5);
-    opacity: 0.5;
     transition: 1s ease;
 }
 
@@ -879,7 +972,11 @@ body{
     .left-menu {
         width: 22%;
     }
-    
+
+    .optionAfficher .text-header h5{
+       overflow: hidden;
+    }
+
     .option .card {
         width: 30%;
         margin-bottom: 20px;
@@ -896,7 +993,12 @@ body{
         width: 25%;
     }
     
+    .arrow {
+        width: 15%;
+    }
+
     .header {
+        width: 85%;
         font-size: 14px;
     }
     
@@ -912,6 +1014,10 @@ body{
     .optionAfficher .action-button {
         width: 25%;
     }
+
+    .optionAfficher .text-header .recherche-Pan{
+        width: 30%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -919,8 +1025,22 @@ body{
         min-height: 8vh;
     }
     
+    .optionAfficher .div-contain{
+        overflow-x: auto;
+    }
+
+    .optionAfficher .text-header h5{
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+
     .arrow {
-        width: 8%;
+        width: 20%;
+    }
+
+    .header {
+        width: 80%;
+        font-size: 15px;
     }
     
     .left-menu {
@@ -960,14 +1080,23 @@ body{
     }
     
     .arrow {
-        width: 10%;
-        min-height: 6vh;
+        width: 20%;
     }
-    
+
+    .header {
+        width: 80%;
+        font-size: 13px;
+    }
     .left-menu {
         width: 70%;
     }
     
+
+    .optionAfficher .text-header h5{
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+
     .navbar ul .link a {
         font-size: 11px;
     }
@@ -995,4 +1124,9 @@ body{
     .optionAfficher .action-button {
         width: 40%;
     }
+}
+
+@page{
+    border: 2px dashed #333;
+    margin: 20mm;
 }

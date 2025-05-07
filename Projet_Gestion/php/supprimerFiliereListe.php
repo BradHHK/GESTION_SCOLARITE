@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Afficher les filieres</title>
+    <title>Panneau Administrateur - Supprimer les filieres</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Afficher les filieres</h5>
+            <h5>Panneau Administrateur - Supprimer les filieres</h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
@@ -65,8 +65,8 @@
                             <li><a href="suspendreUtilisateurListe.php" >Suspendre un utilisateur</a></li>
                         </ul>
                     </ul>
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="#" >Paramètres</a></li>
-                    
+                    <li class="link"><i class="fas fa-chart-column"></i><a href="statistiquesAdmin.php" >Statistiques</a></li><li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
+                
                 </ul>
             </nav>
         </div>
@@ -74,8 +74,8 @@
             <div class="container">
                 <div class="text-header">
                     <h5>Liste des filières</h5>
-                    <form action="" method="post" class="recherche-Pan"><input type="text" required placeholder="nom"><button type="submit" class="fa-solid fa-search"></button></form>
-                </div>
+                    <div class="recherche-Pan"><input type="text" required placeholder="Nom" name="nomfiliereSupprimer" id="nomfiliereSupprimer"><button type="submit" class="fa-solid fa-search" id="recherche"></button></div>
+               </div>
                 <div class="div-contain">
                     <table>
                         <thead>
@@ -85,7 +85,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="utilisateurListe">
                         <?php 
                                 require_once "db_connect.php";
                                 require_once "functions.php";
@@ -100,7 +100,7 @@
                                         echo"<td><span><i class='fas fa-graduation-cap'></span></td>
                                             <td>".$row["nom_filiere"]."</td>";
 
-                                            echo"<td class='action-button'> <a href='supprimerFiliere.php?id=".$row['id_filiere']."' title='supprimer la filiere ".$row['nom_filiere']." ' onclick='return confirm(".'"Supprimer la filiere '.$row['nom_filiere'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
+                                        echo"<td class='action-button'> <a href='supprimerFiliere.php?id=".$row['id_filiere']."' title='supprimer la filiere ".$row['nom_filiere']." ' onclick='return confirm(".'"Supprimer la filiere '.$row['nom_filiere'].'?"'.")'><i class='fas fa-trash'></i></a></td>";
                                         echo"</tr>";
                                     }
                                     

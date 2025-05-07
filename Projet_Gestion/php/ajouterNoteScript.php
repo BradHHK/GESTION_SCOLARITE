@@ -7,7 +7,6 @@
 <?php
     require_once "db_connect.php"; 
     require_once "functions.php";   
-    session_start();
     try {
         if (isset($_POST["matiere"]) && isset($_POST["etudiant"]) && isset($_POST["note"]) && isset($_POST["date_d_evaluation"]) ) {
             $statement = $con->prepare("INSERT INTO evaluations(id_etudiant, id_matiere, note, date_evaluation) VALUE(?,?,?,?)");

@@ -19,6 +19,7 @@
                 foreach($result as $row):
                     if(password_verify($password,$row["password"])){
                         if(strcmp($row['statut'], "Activé")==0){
+                            $_SESSION["id_utilisateurs_administrateur"] = $row["id_proprietaire"];
                             $message ="<br>Bienvenue  ".$row['login']." sur Etusoft<br><br>";
                             $link = "adminPanel.php";
                             displayInfo($message, $link);

@@ -8,8 +8,7 @@
     require_once "db_connect.php";
     require_once "functions.php";
 
-    if(isset($_POST["Nom"])){
-        session_start();    
+    if(isset($_POST["Nom"])){ 
         try {            
             $statement = $con->prepare("INSERT INTO filieres(nom_filiere) VALUE(?)");
             $statement->bind_param("s", $nom);

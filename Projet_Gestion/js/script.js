@@ -50,3 +50,379 @@ utilisateurOption.addEventListener('click', () => {
 enseignantOption.addEventListener('click', () => {
   enseignantListe.classList.toggle('close');
 });
+
+
+document.getElementById("optionStats").addEventListener("change", function() {
+  const optionStatsID = this.value;
+  const download = document.querySelector('.download');
+  if (optionStatsID !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getStatistiquesBoard.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+              download.classList.add('close');
+          }
+      };
+
+      xhr.send("optionStatsID=" + encodeURIComponent(optionStatsID));
+  } else {
+      document.getElementById("utilisateurListe").innerHTML = "<thead> <th></th> <th></th> <th></th></thead> <tbody><td></td><td>SELECTIONNER UNE OPTION SVP</td><td></td></tbody>";
+      download.classList.remove('close');
+  }
+});
+
+function preparerfichier(){
+  const contenu = document.getElementById("div-containE").outerHTML;
+  const titrecontenu = document.getElementById("optionStats").value;
+  document.getElementById("Contenu").value = contenu;
+  document.getElementById("titreContenu").value = titrecontenu;
+}
+
+const recherche = document.getElementById("recherche");
+recherche.addEventListener("click", function() {
+ 
+  try {
+
+    const loginActiver = document.getElementById("loginActiver").value;
+    if (loginActiver !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("loginActiver=" + encodeURIComponent(loginActiver));
+    }else {
+      document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+    
+    
+  } catch (error) {
+    
+
+  }
+
+  try {
+    const login = document.getElementById("login").value;
+    
+    if (login !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+
+      xhr.send("login=" + encodeURIComponent(login));
+    }else {
+      document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+  
+  try {
+    const matriculeEtudiant = document.getElementById("matriculeEtudiant").value;
+    if (matriculeEtudiant !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("matriculeEtudiant=" + encodeURIComponent(matriculeEtudiant));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const matriculeEtudiantSupprimer = document.getElementById("matriculeEtudiantSupprimer").value;
+    if (matriculeEtudiantSupprimer !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("matriculeEtudiantSupprimer=" + encodeURIComponent(matriculeEtudiantSupprimer));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const matriculeEtudiantModifier = document.getElementById("matriculeEtudiantModifier").value;
+    if (matriculeEtudiantModifier !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("matriculeEtudiantModifier=" + encodeURIComponent(matriculeEtudiantModifier));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const matriculeEnseignant = document.getElementById("matriculeEnseignant").value;
+    if (matriculeEnseignant !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("matriculeEnseignant=" + encodeURIComponent(matriculeEnseignant));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const matriculeEnseignantModifier = document.getElementById("matriculeEnseignantModifier").value;
+    if (matriculeEnseignantModifier !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("matriculeEnseignantModifier=" + encodeURIComponent(matriculeEnseignantModifier));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const matriculeEnseignantSupprimer = document.getElementById("matriculeEnseignantSupprimer").value;
+    if (matriculeEnseignantSupprimer !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("matriculeEnseignantSupprimer=" + encodeURIComponent(matriculeEnseignantSupprimer));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const nomfiliere = document.getElementById("nomfiliere").value;
+    if (nomfiliere !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("nomfiliere=" + encodeURIComponent(nomfiliere));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+ 
+  try {
+    const nomfiliereModifier = document.getElementById("nomfiliereModifier").value;
+    if (nomfiliereModifier !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("nomfiliereModifier=" + encodeURIComponent(nomfiliereModifier));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const nomfiliereSupprimer = document.getElementById("nomfiliereSupprimer").value;
+    if (nomfiliereSupprimer !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("nomfiliereSupprimer=" + encodeURIComponent(nomfiliereSupprimer));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const nommatiere = document.getElementById("nommatiere").value;
+    if (nommatiere !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("nommatiere=" + encodeURIComponent(nommatiere));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const nommatiereModifier = document.getElementById("nommatiereModifier").value;
+    if (nommatiereModifier !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("nommatiereModifier=" + encodeURIComponent(nommatiereModifier));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const nommatiereSupprimer = document.getElementById("nommatiereSupprimer").value;
+    if (nommatiereSupprimer !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("nommatiereSupprimer=" + encodeURIComponent(nommatiereSupprimer));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+  try {
+    const loginSuspendre = document.getElementById("loginSuspendre").value;
+    if (loginSuspendre !== "") {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "getUtilisateurRechercher.php", true); 
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById("utilisateurListe").innerHTML = this.responseText;
+          }
+      };
+  
+      xhr.send("loginSuspendre=" + encodeURIComponent(loginSuspendre));
+    }else {
+        document.getElementById("utilisateurListe").innerHTML = "<tr><td></td> <td></td> <td>Aucun utilisateur trouvé</td> <td></td></tr>";
+    }
+  } catch (error) {
+    
+  }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

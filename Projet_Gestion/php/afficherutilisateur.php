@@ -65,8 +65,8 @@
                             <li><a href="suspendreUtilisateurListe.php" >Suspendre un utilisateur</a></li>
                         </ul>
                     </ul>
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="#" >Paramètres</a></li>
-                    
+                    <li class="link"><i class="fas fa-chart-column"></i><a href="statistiquesAdmin.php" >Statistiques</a></li><li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
+                
                 </ul>
             </nav>
         </div>
@@ -75,7 +75,7 @@
                 <div class="text-header">
                     <h5>Liste des utilisateurs</h5>
                     
-                    <form action="" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
+                    <div class="recherche-Pan"><input type="text" required placeholder="login" name="login" id="login"><button type="submit" class="fa-solid fa-search" id="recherche"></button></div>
                 </div>
                 <div class="div-contain">
                     <table>
@@ -87,7 +87,7 @@
                                 <th>Rôle</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="utilisateurListe">
                         <?php 
                                 require_once "db_connect.php";
                                 require_once "functions.php";
@@ -136,5 +136,7 @@
 
 </body>
 
+
 <script language="javascript" src="../js/script.js"></script>
 </html>
+

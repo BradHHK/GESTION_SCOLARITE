@@ -5,14 +5,13 @@
     }
 ?>
 <?php
-    session_start(); 
     require_once "db_connect.php";
     require_once "functions.php";
 
     if(isset($_POST["Nom"])){
            
         try {            
-            $statement = $con->prepare("UPDATE filieres set nom_filiere = ? WHERE id_filiere = ?");
+            $statement = $con->prepare("UPDATE filieres set nom_filiere = TRIM(?) WHERE id_filiere = ?");
             $statement->bind_param("si",$nom, $id_filiere);
             
             $nomBrut = $_POST["Nom"];

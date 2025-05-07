@@ -1,9 +1,4 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION["AdminLogin"]) || !isset($_SESSION["AdminPassword"])){
-        header("location:../adminLogin.html");
-    }
-?>
+
 <?php
     require_once "db_connect.php";
     require_once "functions.php";

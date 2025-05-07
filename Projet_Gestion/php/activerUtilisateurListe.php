@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Afficher les utilisateurs</title>
+    <title>Panneau Administrateur - Activer les utilisateurs</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Afficher les utilisateurs</h5>
+            <h5>Panneau Administrateur - Activer les utilisateurs</h5>
             <span class="ImageDefault"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;</span>
         </header>
     </div>
@@ -65,8 +65,8 @@
                             <li><a href="suspendreUtilisateurListe.php" >Suspendre un utilisateur</a></li>
                         </ul>
                     </ul>
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="#" >Paramètres</a></li>
-                    
+                    <li class="link"><i class="fas fa-chart-column"></i><a href="statistiquesAdmin.php" >Statistiques</a></li><li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
+                
                 </ul>
             </nav>
         </div>
@@ -75,7 +75,8 @@
                 <div class="text-header">
                     <h5>Liste des utilisateurs</h5>
                     
-                    <form action="" class="recherche-Pan"><input type="text" required placeholder="matricule"><button type="submit" class="fa-solid fa-search"></button></form>
+                         <div class="recherche-Pan"><input type="text" required placeholder="login" name="loginActiver" id="loginActiver"><button type="submit" class="fa-solid fa-search" id="recherche"></button></div>
+                
                 </div>
                 <div class="div-contain">
                     <table>
@@ -85,9 +86,10 @@
                                 <th>Login</th>
                                 <th>Statut</th>
                                 <th>Rôle</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="utilisateurListe">
                         <?php 
                                 require_once "db_connect.php";
                                 require_once "functions.php";
@@ -114,7 +116,7 @@
                                         }
                                         
                                         
-                                        echo"<td class='action-button'></a> <a href='activerUtilisateur.php?id_account=".$row['id_accounts']."' title='activer l utilisateur ".$row['login']." '><i class='fas fa-shield'></i></a></td>";
+                                        echo"<td class='action-button'><a href='activerUtilisateur.php?id_account=".$row['id_accounts']."' title='activer l utilisateur ".$row['login']." ' onclick='return confirm(".'"Activer l utilisateur '.$row['login'].'?"'.")'><i class='fas fa-shield'></i></a></td>";
                                         echo"</tr>";
                                     }
                                     

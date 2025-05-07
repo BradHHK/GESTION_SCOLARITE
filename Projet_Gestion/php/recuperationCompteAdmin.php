@@ -8,7 +8,7 @@
         $_SESSION["id_Etudiant_Enseignant"] = $_POST["id_Etudiant_Enseignant"];
         try {
             
-                $statement = $con->prepare("SELECT Nom, prenom FROM administrator where code like ?");
+                $statement = $con->prepare("SELECT id_administrateur, Nom, prenom FROM administrator where code like ?");
                 $statement->bind_param("s", $matricule);
                 $nom = $_POST["nom_prenom"];
                 $matriculeBrut = $_POST["id_Etudiant_Enseignant"];
@@ -21,9 +21,9 @@
                     if(strcmp(ucwords(strtolower($nom)) , $nomrecup)==0){
                         
                         $password = genererPassword(8);
-                        $statement = $con->prepare("INSERT INTO accounts(login, password, id_role) VALUES(?, ?, ?)");
-                        $statement->bind_param("ssi", $login, $hashPass, $role);
-
+                        $statement = $con->prepare("INSERT INTO accounts(id_proprietaire,login, password, id_role) VALUES(?, ?, ?, ?)");
+                        $statement->bind_param("issi",$id_administrateur, $login, $hashPass, $role);
+                        $id_administrateur = $row["id_administrateur"];
                         $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);
                         $role = 3;

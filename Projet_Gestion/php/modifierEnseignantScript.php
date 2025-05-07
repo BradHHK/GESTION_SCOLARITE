@@ -12,7 +12,7 @@
     if(isset($_POST["Nom"]) && isset($_POST["Prenom"]) && isset($_POST["email"]) && isset($_SESSION["id_enseignant"])){
            
         try {            
-            $statement = $con->prepare("UPDATE enseignants set nom = ?, prenom = ?, email = ? where id_enseignant = ?");
+            $statement = $con->prepare("UPDATE enseignants set nom = TRIM(?), prenom = TRIM(?), email = TRIM(?) where id_enseignant = ?");
             $statement->bind_param("sssi",$nom, $prenom, $email, $id_enseignant);
             $nomBrut = $_POST["Nom"];
             $nom = ucwords(strtolower($nomBrut));

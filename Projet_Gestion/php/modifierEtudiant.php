@@ -78,8 +78,8 @@
                             <li><a href="suspendreUtilisateurListe.php" >Suspendre un utilisateur</a></li>
                         </ul>
                     </ul>
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="#" >Paramètres</a></li>
-                    
+                    <li class="link"><i class="fas fa-chart-column"></i><a href="statistiquesAdmin.php" >Statistiques</a></li><li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
+                
                 </ul>
             </nav>
         </div>
@@ -109,7 +109,7 @@
                                             $statement->execute();
                                             $result = $statement->get_result();
                                             if($row = $result->fetch_assoc()){
-                                                echo htmlspecialchars($row["nom"]);
+                                                echo trim(htmlspecialchars($row["nom"]));
                                             }
                                         
                                         } catch (Exception $ex) {
