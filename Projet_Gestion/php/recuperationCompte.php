@@ -24,7 +24,7 @@
                         
                         $password = genererPassword(8);
                         $statement = $con->prepare("INSERT INTO accounts(id_proprietaire, login, password, id_role) VALUES(?,?, ?, ?)");
-                        $statement->bind_param("issi", $login, $hashPass, $role);
+                        $statement->bind_param("issi", $id_enseignant, $login, $hashPass, $role);
                         $id_enseignant = $row["id_enseignant"];
                         $login = $row["Nom"]."_".$row["prenom"]."@etusoft.ma";    
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);
