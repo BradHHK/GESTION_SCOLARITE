@@ -29,9 +29,9 @@
         <div class="left-menu">
             <nav class="navbar">
                 <ul>
-                    <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des Notes</a></li>
+                    <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des étudiants</a></li>
                     <ul class="MatiereListe">
-                        <li><a href="#" >Attribuer une note</a></li>
+                        <li><a href="attribuerNote.php" >Attribuer une note</a></li>
                         <li><a href="#" >Modifier une note </a></li>
                         <li><a href="#" >Valider le requete</a></li>
                     </ul>
@@ -47,10 +47,9 @@
                     <img src="../images/attribuernote.png" alt="">
                 </div>
                 <div class="card-text">
-                    <h5 class="titreCard">Organisez toutes les matières enseignées comme un chef !</h5>
+                    <h5 class="titreCard">Distribue les points comme un chef</h5>
                     <hr>
-                    <p>Ajoutez de nouvelles disciplines, mettez à jour les cours existants ou supprimez ceux qui n’ont plus leur place.
-                    Un seul clic pour garder le programme à jour et inspirer les futurs diplômés !</p>
+                    <p>Note les étudiants de ta classe directement depuis cette interface. Sélectionne la matière, la filière, entre les résultats et valide. Gain de temps, simplicité, efficacité. C’est l’évaluation sans friction.</p>
                     
                 </div>
             </div>
@@ -60,10 +59,9 @@
                     <img src="../images/modifiernote.png" alt="">
                 </div>
                 <div class="card-text">
-                    <h5 class="titreCard">Construisez les parcours d’excellence !</h5>
+                    <h5 class="titreCard">Besoin d’un ajustement ? C’est là !</h5>
                     <hr>
-                    <p>Créez, modifiez et structurez les différentes filières pour mieux guider les étudiants dans leur aventure académique.
-                    Ici, chaque filière devient un tremplin vers la réussite !</p>
+                    <p>Que ce soit une correction de saisie ou une note à réviser après délibération, c’est ici que tout se passe. Sélectionne l’étudiant concerné, modifie, valide — et ETUSOFT s’occupe de la mise à jour en toute sécurité.</p>
                     
                 </div>
             </div>
@@ -73,10 +71,9 @@
                     <img src="../images/recevoirrequete.png" alt="">
                 </div>
                 <div class="card-text">
-                    <h5 class="titreCard">Gérez votre communauté universitaire en toute simplicité !</h5>
+                    <h5 class="titreCard"> Toutes les demandes, centralisées ici!</h5>
                     <hr>
-                    <p>Donnez accès aux étudiants, enseignants et admins, contrôlez les permissions et gardez un œil sur chaque profil.
-                    Parce qu'une bonne organisation commence par une bonne gestion des comptes !</p>
+                    <p>Gagne en clarté en consultant toutes les requêtes envoyées par les étudiants. Statut, contenu, date : tout est là pour faciliter le traitement, répondre efficacement et garder une trace nette.</p>
                     
                 </div>
             </div>

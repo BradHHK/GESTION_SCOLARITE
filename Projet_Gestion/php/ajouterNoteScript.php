@@ -20,7 +20,7 @@
                 Note  : ".$note." <br>
                 Date  : ".$date_naissance." <br>
                 <br> Note attribué avec succès ";
-                $link = "attribuerNote.php?id=".$_SESSION['id_enseignant']."";
+                $link = "enseignantPanel.php";
                 displayInfo($message, $link); 
             }else{
                 $message ="Erreur Inconnu";

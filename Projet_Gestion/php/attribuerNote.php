@@ -1,8 +1,9 @@
 
 <?php
+    session_start();
     require_once "db_connect.php";
     require_once "functions.php";
-    session_start();
+
     if (isset($_SESSION["id_matiere"])) {
         unset($_SESSION["id_matiere"]);
     }
@@ -11,11 +12,8 @@
         $_SESSION["id_matiere"] = $_POST["matiere"];
     }
 
-    if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
-        $id = $_GET["id"];
-        $_SESSION['id_enseignant'] = $id;
-    } else {
-        header("location:afficherEnseignant.php");
+    if(!isset($_SESSION["Login"]) || !isset($_SESSION["Password"]) || !isset($_SESSION["id_utilisateurs_enseignant"])){
+        header("location:../Login.html");
     }
 
 ?>
@@ -44,26 +42,15 @@
         <div class="left-menu">
             <nav class="navbar">
                 <ul>
-                    <li class="link"><i class="fa-solid fa-book-open"></i><a href="#">Gestion des matieres</a></li>
+                <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des Notes</a></li>
                     <ul class="MatiereListe">
-                        <li><a href="afficherMatiere.php" >Afficher les matieres</a></li>
-                        <li><a href="ajouterMatiere.php" >Ajouter une matiere</a></li>
-                        <li><a href="modifierMatiereListe.php" >Modifier une matiere</a></li>
-                        <li><a href="supprimerMatiereListe.php" >Supprimer une matiere</a></li>
+                        <li><a href="#" >Attribuer une note</a></li>
+                        <li><a href="#" >Modifier une note </a></li>
+                        <li><a href="#" >Valider le requete</a></li>
                     </ul>
-                    <li class="link"><i class="fa-solid fa-note-sticky"></i><a href="#">Gestion des filieres</a></li>
-                    <ul>
-                        <li><a href="#">Afficher les filieres</a></li>
-                        <li><a href="#">Ajouter une filiere</a></li>
-                        <li><a href="#">Modifier une filiere</a></li>
-                        <li><a href="#">Supprimer une filiere</a></li>
-                    </ul>
-                    <li class="link"><i class="fa-solid fa-users-rectangle"></i><a href="#">Gestion des utilisateurs/Comptes</a></li>
-                    <ul>
-                        <li><a href="#">Gestion des étudiants</a></li>
-                        <li><a href="#">Gestion des enseignants</a></li>
-                        <li><a href="#">Gestion des utilisateurs</a></li>
-                    </ul>
+                    
+              
+        
                     <li class="link"><i class="fa-solid fa-sliders"></i><a href="#">Paramètres</a></li>
                 </ul>
             </nav>
@@ -89,7 +76,7 @@
                                         try {
                                             $statement = $con->prepare("SELECT * FROM matieres as mat, enseignants as ens WHERE (ens.id_enseignant = mat.id_enseignant AND ens.id_enseignant = ?)");
                                             $statement->bind_param("i", $id_enseignant);
-                                            $id_enseignant = $_SESSION["id_enseignant"];
+                                            $id_enseignant = $_SESSION["id_utilisateurs_enseignant"];
                                             $statement->execute();
                                             $result = $statement->get_result();
                                             while($row = $result->fetch_assoc()){
@@ -158,7 +145,7 @@ document.getElementById("matiere").addEventListener("change", function() {
 
         xhr.send("id_matiere=" + encodeURIComponent(matiereId));
     } else {
-        document.getElementById("etudiant").innerHTML = "<option value=''>--SELECTIONNER L'ÉTUDIANTS--</option>";
+        document.getElementById("etudiant").innerHTML = "<option value=''>--SELECTIONNER L'ÉTUDIANT--</option>";
     }
 });
 </script>
