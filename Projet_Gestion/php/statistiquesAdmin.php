@@ -87,14 +87,13 @@
                         </select>
                     </div>
                 </div>
-                <?php
-
-                ?>
+ 
                 <div class="div-containE" id="div-containE">
                     <table id="utilisateurListe" class="tableE">
 
                     </table>
                 </div>
+                
                 <div class="bouton-area">
                 <form action="telecharger.php" method="POST">
                     <input type="hidden" name="Contenu" id="Contenu">

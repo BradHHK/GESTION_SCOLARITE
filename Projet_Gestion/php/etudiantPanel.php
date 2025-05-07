@@ -31,9 +31,9 @@
                 <ul>
                     <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des Notes</a></li>
                     <ul class="MatiereListe">
-                        <li><a href="#" >Consulter ses notes</a></li>
-                        <li><a href="#" >Déposer une requête </a></li>
-                        <li><a href="#" >Demander une attestation</a></li>
+                        <li><a href="afficherNoteEtudiant.php" >Consulter ses notes</a></li>
+                        <li><a href="deposerRequete.php" >Déposer une requête </a></li>
+                        <li><a href="demanderAttestation.php" >Demander une attestation</a></li>
                     </ul>
                     
                     <li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
@@ -44,40 +44,37 @@
         <div class="option">
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/G_matiere.png" alt="">
+                    <img src="../images/attestationetu.png" alt="">
                 </div>
                 <div class="card-text">
-                    <h5 class="titreCard">Organisez toutes les matières enseignées comme un chef !</h5>
+                    <h5 class="titreCard">Besoin d’un papier officiel ? </h5>
                     <hr>
-                    <p>Ajoutez de nouvelles disciplines, mettez à jour les cours existants ou supprimez ceux qui n’ont plus leur place.
-                    Un seul clic pour garder le programme à jour et inspirer les futurs diplômés !</p>
-                    <a class="consulter">Accéder</a>
+                    <p>Tu veux une attestation de scolarité ou un autre document ? Inutile de courir après le secrétariat ! Fais ta demande directement ici, rapidement et sans prise de tête. L’équipe administrative s’occupe du reste.</p>
+                    
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/G_filiere.png" alt="">
+                    <img src="../images/consulternote.png" alt="">
                 </div>
                 <div class="card-text">
-                    <h5 class="titreCard">Construisez les parcours d’excellence !</h5>
+                    <h5 class="titreCard">Voir ses résultats, sans suspense !</h5>
                     <hr>
-                    <p>Créez, modifiez et structurez les différentes filières pour mieux guider les étudiants dans leur aventure académique.
-                    Ici, chaque filière devient un tremplin vers la réussite !</p>
-                    <a href="#" class="consulter">Accéder</a>
+                    <p>Retrouve toutes tes notes ici, organisées par matière et par semestre. Suis ta progression, analyse tes résultats et reste focus sur tes objectifs. Ton bulletin digital est dispo 24h/24, 7j/7</p>
+                    
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/setting.png" alt="">
+                    <img src="../images/envoyerrequet.png" alt="">
                 </div>
                 <div class="card-text">
-                    <h5 class="titreCard">Gérez votre communauté universitaire en toute simplicité !</h5>
+                    <h5 class="titreCard">Une demande à faire ? Parle-nous  !</h5>
                     <hr>
-                    <p>Donnez accès aux étudiants, enseignants et admins, contrôlez les permissions et gardez un œil sur chaque profil.
-                    Parce qu'une bonne organisation commence par une bonne gestion des comptes !</p>
-                    <a class="consulter">Accéder</a>
+                    <p>Tu rencontres un souci ? Tu veux faire une réclamation ou poser une question officielle ? Ce module est là pour toi. Rédige ta requête, suis son évolution et reste informé jusqu’à la réponse finale</p>
+                    
                 </div>
             </div>
 
@@ -92,7 +89,6 @@
                     Personnalisez l'apparence, ajustez les fonctionnalités, configurez votre système selon vos envies.
                     Parce que votre université mérite une application aussi unique qu'elle !</p>
 
-                    <a class="consulter">Accéder</a>
                 </div>
             </div>
         </div>

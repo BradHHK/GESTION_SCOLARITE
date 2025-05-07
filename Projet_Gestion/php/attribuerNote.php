@@ -2,7 +2,7 @@
 <?php
     require_once "db_connect.php";
     require_once "functions.php";
-
+    session_start();
     if (isset($_SESSION["id_matiere"])) {
         unset($_SESSION["id_matiere"]);
     }
@@ -158,7 +158,7 @@ document.getElementById("matiere").addEventListener("change", function() {
 
         xhr.send("id_matiere=" + encodeURIComponent(matiereId));
     } else {
-        document.getElementById("etudiant").innerHTML = "<option value=''>--SELECTIONNER L'ÉTUDIANT--</option>";
+        document.getElementById("etudiant").innerHTML = "<option value=''>--SELECTIONNER L'ÉTUDIANTS--</option>";
     }
 });
 </script>
