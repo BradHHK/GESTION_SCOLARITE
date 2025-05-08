@@ -31,7 +31,7 @@
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
             <h5>Panneau Administrateur - Modifier un enseignant</h5>
-            <span class="ImageDefault"><i class="fa-solid fa-house"></i></span>
+            <span class="ImageDefault"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></span>
         </header>
     </div>
     

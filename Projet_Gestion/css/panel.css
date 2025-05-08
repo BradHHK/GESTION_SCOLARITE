@@ -861,6 +861,24 @@ button[type="reset"]:hover{
     color: #0d262a;
 }
 
+.buttonSpecial{
+    padding: 7%;
+    font-size: 12px;
+    background-color:#0e3a5e;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 4px 2px rgba(162, 141, 141, 0.1);
+}
+
+.inputSpecial{
+    height: 40px;
+    font-size: 13px;
+    color: #1d60d5;
+    font-weight: bold;
+}
+
 .optionAfficher .text-header .recherche-Pan select{
     width: 90%;
     height: 100%;
@@ -904,6 +922,10 @@ button[type="reset"]:hover{
 
 .optionAfficher .action-button a:nth-child(3){
     color: #d9171d;
+}
+
+.download.close{
+    opacity: 1 !important;
 }
 
 .FiliereListe{
@@ -1018,6 +1040,8 @@ body{
     .optionAfficher .text-header .recherche-Pan{
         width: 30%;
     }
+
+    
 }
 
 @media screen and (max-width: 768px) {

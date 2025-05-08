@@ -42,9 +42,9 @@
         <div class="left-menu">
             <nav class="navbar">
                 <ul>
-                <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des Notes</a></li>
+                    <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des Notes</a></li>
                     <ul class="MatiereListe">
-                        <li><a href="attribuerNoter.php" >Attribuer une note</a></li>
+                        <li><a href="attribuerNote.php" >Attribuer une note</a></li>
                         <li><a href="modifierNote.php" >Modifier une note </a></li>
                         <li><a href="afficherRequete.php" >Valider le requete</a></li>
                     </ul>
@@ -53,9 +53,9 @@
         </div>
 
         <div class="optionAjouter">  
-            <form action ="ajouterNoteScript.php" method="post" class="form">
+            <form action ="modifierNoteScript.php" method="post" class="form">
                 <div class="text-header">
-                    <h5>Attribuer une note</h5>
+                    <h5>Modifier une note</h5>
                 </div>
 
                 <div class="form-contain">
@@ -106,16 +106,11 @@
                             
                         </tr>
 
-                        <tr>
-                            <td>Date d'évaluation</td>
-                            <td><input type="date" name="date_d_evaluation" required></td>
-                            
-                        </tr>
                     </table>
                 </div>
 
                 <div class="bouton-area">
-                    <button type="submit">Attribuer</button>
+                    <button type="submit">Modifier</button>
                     <button type="reset">Supprimer</button>
                 </div>
             </form> 
@@ -139,7 +134,7 @@ document.getElementById("matiere").addEventListener("change", function() {
             }
         };
 
-        xhr.send("id_matiere=" + encodeURIComponent(matiereId));
+        xhr.send("id_matiereModif=" + encodeURIComponent(matiereId));
     } else {
         document.getElementById("etudiant").innerHTML = "<option value=''>--SELECTIONNER L'ÉTUDIANT--</option>";
     }

@@ -8,18 +8,16 @@
     require_once "db_connect.php"; 
     require_once "functions.php";   
     try {
-        if (isset($_POST["matiere"]) && isset($_POST["etudiant"]) && isset($_POST["note"]) && isset($_POST["date_d_evaluation"]) ) {
-            $statement = $con->prepare("INSERT INTO evaluations(id_etudiant, id_matiere, note, date_evaluation) VALUE(?,?,?,?)");
-            $statement->bind_param("iids", $id_etudiant, $id_matiere, $note, $date_naissance);
+        if (isset($_POST["matiere"]) && isset($_POST["etudiant"]) && isset($_POST["note"])) {
+            $statement = $con->prepare("UPDATE evaluations SET note = ? WHERE id_etudiant = ? AND id_matiere = ? ");
+            $statement->bind_param("dii", $note, $id_etudiant, $id_matiere);
             $id_etudiant = $_POST["etudiant"];
             $id_matiere = $_POST["matiere"];
             $note = $_POST["note"];
-            $date_naissance = $_POST["date_d_evaluation"];
             if($statement->execute()){
                 $message ="EVALUATION  <br>
                 Note  : ".$note." <br>
-                Date  : ".$date_naissance." <br>
-                <br> Note attribué avec succès ";
+                <br> Note modifiée avec succès ";
                 $link = "enseignantPanel.php";
                 displayInfo($message, $link); 
             }else{

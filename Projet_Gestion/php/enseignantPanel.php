@@ -20,7 +20,7 @@
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
             <h5>Panneau Enseignant </h5>
-            <span class="ImageDefault"><i class="fa-solid fa-house"></i></span>
+            <span class="ImageDefault"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></span>
         </header>
     </div>
     
@@ -32,11 +32,9 @@
                     <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des étudiants</a></li>
                     <ul class="MatiereListe">
                         <li><a href="attribuerNote.php" >Attribuer une note</a></li>
-                        <li><a href="#" >Modifier une note </a></li>
-                        <li><a href="#" >Valider le requete</a></li>
+                        <li><a href="modifierNote.php" >Modifier une note </a></li>
+                        <li><a href="afficherRequete.php" >Valider le requete</a></li>
                     </ul>
-                    
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
                 
                 </ul>
             </nav>

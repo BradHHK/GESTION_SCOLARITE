@@ -4,6 +4,7 @@
         header("location:../adminLogin.html");
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +13,14 @@
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link href="../css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <title>Panneau Administrateur - Modifier les filieres</title>
+    <title>Admin Panel</title>
 </head>
 <body>
     <div class="head">
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
-            <h5>Panneau Administrateur - Modifier les filieres</h5>
-            <span class="ImageDefault"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>&nbsp;&nbsp;</span>
+            <h5>Panneau Administrateur - Parametre</h5>
+            <span class="ImageDefault"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></span>
         </header>
     </div>
     
@@ -36,14 +37,14 @@
                         <li><a href="supprimerMatiereListe.php" >Supprimer une matiere</a></li>
                     </ul>
                     <li class="link" id="FiliereOption"><i class="fa-solid fa-note-sticky"></i><a href="#" >Gestion des filieres</a></li>
-                    <ul class="FiliereListe">
+                   <ul class="FiliereListe">
                         <li><a href="afficherFiliere.php" >Afficher les filieres</a></li>
                         <li><a href="ajouterFiliere.php" >Ajouter une filiere</a></li>
                         <li><a href="modifierFiliereListe.php" >Modifier une filiere</a></li>
                         <li><a href="supprimerFiliereListe.php" >Supprimer une filiere</a></li>
                     </ul>
                     <li class="link" id="CompteOption"><i class="fa-solid fa-users-rectangle"></i><a href="#" >Gestion des utilisateurs/Comptes</a></li>
-                    <ul class="CompteListe">
+                  <ul class="CompteListe">
                         <li id="EtudiantOption"><i class="fa-solid fa-users"></i><a href="#" >Gestion des étudiants</a></li>
                         <ul class="EtudiantListe">
                             <li><a href="afficherEtudiant.php" >Afficher les etudiants</a></li>
@@ -70,51 +71,62 @@
                 </ul>
             </nav>
         </div>
-        <div class="optionAfficher">
-            <div class="container">
-                <div class="text-header">
-                    <h5>Liste des filières</h5>
-                    <div class="recherche-Pan"><input type="text" required placeholder="Nom" name="nomfiliereModifier" id="nomfiliereModifier"><button type="submit" class="fa-solid fa-search" id="recherche"></button></div>
-                </div>
-                <div class="div-contain">
-                    <table>
-                        <thead>
+        <div class="optionAjouter">  
+            <form action="parametreAdminScript.php" method="post"  class= "form">
+                    
+                    <div class="text-header">
+                        <h5>Generer un mot de passe</h5>
+                    </div>
+                        
+                    <div class="form-contain">
+                        <table>
+                            <div class="imageContain"></div>
+                            
+                            
                             <tr>
-                                <th></th>
-                                <th>Nom</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="utilisateurListe">
-                        <?php 
-                                require_once "db_connect.php";
-                                require_once "functions.php";
-                                try {     
-                                    $statement = $con->prepare("SELECT * FROM filieres");
-                                    $statement->execute();
-                                    $result = $statement->get_result();
-                                    
-                                    while($row = $result->fetch_assoc()){
+                                <td>Compte utilisateur </td>
+                                <td>
+                                    <select name="id_compte" id="filiere">
                                         
-                                        echo"<tr>";
-                                        echo"<td><span><i class='fas fa-graduation-cap'></span></td>
-                                            <td>".$row["nom_filiere"]."</td>";
+                                        <?php
+                                            require_once "db_connect.php";
+                                            require_once "functions.php";
+                                            try {
+                                                
+                                                $statement = $con->prepare("SELECT * FROM accounts");
+                                                $statement->execute();
+                                                $result = $statement->get_result();
+                                                while($row = $result->fetch_assoc()){
+                                                    echo "<option value='".$row['id_accounts']."'>".$row['login']."</option>";
+                                                }
+                                                
+                                            } catch (Exception $ex) {
+                                                $message ="Erreur ".$ex->getMessage();
+                                                $link = "parametreAdmin.php";
+                                                displayInfo($message, $link);
+                                            }
+                                            
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
 
-                                            echo"<td class='action-button'> <a href='modifierFiliere.php?id=".$row['id_filiere']."' title='modifier la filiere ".$row['nom_filiere']." '><i class='fas fa-edit'></i></a></td>";
-                                        echo"</tr>";
-                                    }
-                                    
-                                } catch (Exception $ex) {
-                                    $message ="Erreur ".$ex->getMessage();
-                                    $link = "modifierFiliereListe.php";
-                                    displayInfo($message, $link);
-                                }
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
+                            <tr>
+                                <td><a id="buttonPassword" class="buttonSpecial">Génerer</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="Password" id="passwordGenerate" class="inputSpecial" readonly></td>
+                                
+                            </tr>
+                            
+                        </table>
+                    </div>
+                        
+                    <div class="bouton-area">
+                        <button type="submit">Confirmer</button>
+                        <button type="reset">Supprimer</button>
+                    </div>
+            </form> 
         </div>
     </div>
 

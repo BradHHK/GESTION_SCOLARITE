@@ -20,7 +20,7 @@
         <div class="arrow"><span class="logo_img" id="logo"></span></div>
         <header class="header">
             <h5>Panneau Etudiant - Afficher notes</h5>
-            <span class="ImageDefault"><i class="fa-solid fa-house"></i></span>
+            <span class="ImageDefault"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></span>
         </header>
     </div>
     
@@ -32,11 +32,9 @@
                     <li class="link" id="MatiereOption"><i class="fa-solid fa-book-open"></i><a href="#" >Gestion des Notes</a></li>
                     <ul class="MatiereListe">
                         <li><a href="afficherNoteEtudiant.php" >Consulter ses notes</a></li>
-                        <li><a href="#" >Déposer une requête </a></li>
-                        <li><a href="#" >Demander une attestation</a></li>
+                        <li><a href="deposerRequete.php" >Déposer une requête </a></li>
+                        <li><a href="demanderAttestation.php" >Demander une attestation</a></li>
                     </ul>
-                    
-                    <li class="link"><i class="fa-solid fa-sliders"></i><a href="parametreAdmin.php" >Paramètres</a>
                 
                 </ul>
             </nav>
@@ -45,7 +43,6 @@
             <div class="container">
                 <div class="text-header">
                     <h5>Vos notes</h5>
-                    <div class="recherche-Pan"><input type="text" required placeholder="Nom de la matiere" name="nommatiereEtu" id="nommatiereEtu"><button type="submit" class="fa-solid fa-search" id="recherche"></button></div>
                 </div>
                 <div class="div-containE" id="div-containE">
                     <table class="tableE">

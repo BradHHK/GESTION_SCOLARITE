@@ -449,6 +449,24 @@ try {
   
 }
 
+try {
+  document.getElementById("buttonPassword").addEventListener("click", function() {
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "genererPassword.php", true); 
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function() {
+            if (this.status === 200) {
+                document.getElementById("passwordGenerate").value = this.responseText;
+            }
+        };
+        xhr.send("buttonPassword");
+  });
+
+} catch (error) {
+  
+}
+
 
 
 

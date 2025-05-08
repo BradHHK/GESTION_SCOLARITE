@@ -8,8 +8,7 @@
     require_once "db_connect.php";
     require_once "functions.php";
 
-    if(isset($_POST["Nom"]) && isset($_POST["Prenom"]) && isset($_POST["email"])){
-        session_start();    
+    if(isset($_POST["Nom"]) && isset($_POST["Prenom"]) && isset($_POST["email"])){  
         try {            
             $statement = $con->prepare("INSERT INTO enseignants(Matricule, nom, prenom, email) VALUES(?,?,?,?)");
             $statement->bind_param("ssss",$matricule, $nom, $prenom, $email);
